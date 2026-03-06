@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1520; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const waves=[];for(let i=0;i<8;i++)waves.push({y:H*0.3+i*H*0.08,amp:30+i*15,freq:0.008+i*0.002,sp:0.001+i*0.0005,phase:i});
+    const particles=[];for(let i=0;i<60;i++)particles.push({x:Math.random()*W,y:Math.random()*H*0.7,vx:(Math.random()-0.5)*0.5,vy:Math.random()*0.5,s:Math.random()*3+1,cl:i%2===0?'#c44536':'#f4d03f'});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);
+        g.addColorStop(0,'#2a1a30');g.addColorStop(0.3,'#1a1528');g.addColorStop(0.6,'#251a35');g.addColorStop(1,'#1a1015');
+        x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let w of waves){x.strokeStyle=`hsla(${30+w.phase*10},70%,${40+w.phase*5}%,0.4)`;x.lineWidth=3;x.beginPath();for(let wx=0;wx<=W;wx+=10){const wy=w.y+Math.sin(wx*w.freq+t*w.sp*1000+w.phase)*w.amp*Math.sin(t*0.001);wx===0?x.moveTo(wx,wy):x.lineTo(wx,wy);}x.stroke();}
+        for(let p of particles){p.x+=p.vx+Math.sin(t*0.001+p.y*0.01)*0.3;p.y+=p.vy;if(p.y>H)p.y=0;if(p.x<0)p.x=W;if(p.x>W)p.x=0;x.globalAlpha=0.4+Math.sin(t*0.003+p.x*0.01)*0.3;x.fillStyle=p.cl;x.beginPath();x.arc(p.x,p.y,p.s,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        x.fillStyle='#f4a460';x.beginPath();x.moveTo(0,H);x.lineTo(0,H-100);x.quadraticCurveTo(W*0.3,H-150,W*0.5,H-120);x.quadraticCurveTo(W*0.7,H-90,W*0.8,H-130);x.quadraticCurveTo(W*0.9,H-170,W,H-120);x.lineTo(W,H);x.fill();
+        x.fillStyle='#1a1015';x.beginPath();x.moveTo(0,H-50);x.lineTo(0,H);x.lineTo(W,H);x.lineTo(W,H-50);x.quadraticCurveTo(W*0.7,H-70,W*0.5,H-50);x.quadraticCurveTo(W*0.3,H-30,W*0.2,H-50);x.fill();
+        const cx=W/2,cy=H/2,scale=Math.min(W,H)/400;
+        x.save();x.translate(cx,cy);x.scale(scale,scale);
+        x.fillStyle='#f4d03f';x.beginPath();x.ellipse(0,80,200,30,0,0,Math.PI*2);x.fill();
+        const cg=x.createRadialGradient(0,-20,0,0,0,200);cg.addColorStop(0,'#f4d03f');cg.addColorStop(0.5,'#c44536');cg.addColorStop(1,'transparent');
+        x.fillStyle=cg;x.beginPath();x.arc(0,0,200,0,Math.PI*2);x.fill();
+        const shake=Math.sin(t*0.02)*3;
+        x.strokeStyle='#1a1015';x.lineWidth=8;x.lineCap='round';
+        x.beginPath();x.moveTo(-120,-30+shake);x.quadraticCurveTo(-80,-80+shake,-40,-40+shake);x.stroke();
+        x.beginPath();x.moveTo(120,-30+shake);x.quadraticCurveTo(80,-80+shake,40,-40+shake);x.stroke();
+        x.beginPath();x.moveTo(0,-120);x.lineTo(0,-60);x.stroke();
+        x.fillStyle='#f4d03f';x.beginPath();x.ellipse(0,0,70,90,0,0,Math.PI*2);x.fill();
+        x.strokeStyle='#1a1015';x.lineWidth=4;
+        x.beginPath();x.arc(0,0,65,Math.PI*0.2,Math.PI*0.8);x.stroke();
+        x.fillStyle='#1a1015';x.beginPath();x.ellipse(-25,-15,18,25,0.2,0,Math.PI*2);x.fill();
+        x.beginPath();x.ellipse(25,-15,18,25,-0.2,0,Math.PI*2);x.fill();
+        x.fillStyle='#fff';x.beginPath();x.arc(-20,-20,5,0,Math.PI*2);x.fill();x.beginPath();x.arc(30,-20,5,0,Math.PI*2);x.fill();
+        x.fillStyle='#1a1015';x.beginPath();x.ellipse(0,30,25,15,0,0,Math.PI*2);x.fill();
+        x.strokeStyle='#c44536';x.lineWidth=3;
+        x.beginPath();x.arc(0,30,20,0.2,Math.PI-0.2);x.stroke();
+        x.strokeStyle='#1a1015';x.lineWidth=6;x.beginPath();x.moveTo(-10,60);x.lineTo(-15,90);x.moveTo(10,60);x.lineTo(15,90);x.stroke();
+        x.restore();
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#c44536');og.addColorStop(0.5,'#1a1528');og.addColorStop(1,'#1a1015');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

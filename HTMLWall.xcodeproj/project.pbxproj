@@ -7,56 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		099F0E54A67F867B71CEE82A /* 15-storm.html in Resources */ = {isa = PBXBuildFile; fileRef = 966B90B11811D15BFBB5963D /* 15-storm.html */; };
 		0CA9C8EBE1E0D5A77C355F0D /* 02-ocean.html in Resources */ = {isa = PBXBuildFile; fileRef = 4489E7444C7BDD8233BD56BE /* 02-ocean.html */; };
+		0E18B6F3AEE14ED8C6C985C4 /* 14-pearl-earring.html in Resources */ = {isa = PBXBuildFile; fileRef = D8FC8B28D47B9C716F49F9C9 /* 14-pearl-earring.html */; };
+		1541F3069E661AE485661DA5 /* 19-great-wave.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F47E2B9828F175A0E939B65 /* 19-great-wave.html */; };
+		1C905EC0582E1E3F4635B361 /* 11-mona-lisa.html in Resources */ = {isa = PBXBuildFile; fileRef = 5ABAB7C208F1296A3B353DD2 /* 11-mona-lisa.html */; };
 		422D35AF18C8B98433C114A0 /* 10-aurora.html in Resources */ = {isa = PBXBuildFile; fileRef = 123CBB9756AD67AECCC23646 /* 10-aurora.html */; };
-		438FE13E629DA96D6D69349E /* enhance_remaining.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1D01DF91FAFA940C17516F6D /* enhance_remaining.sh */; };
-		47422F39D9E05B4627DC55E8 /* 12-enchanted.html in Resources */ = {isa = PBXBuildFile; fileRef = D8B02738C3B33B910B08F618 /* 12-enchanted.html */; };
-		4CFBB8535E30DA125FAC1DD5 /* 11-vortex.html in Resources */ = {isa = PBXBuildFile; fileRef = 6453B36F15D9CE2664523645 /* 11-vortex.html */; };
-		5930B136558E68AFD418C184 /* 20-steampunk.html in Resources */ = {isa = PBXBuildFile; fileRef = 199DE46178EC3A3CE824FAEA /* 20-steampunk.html */; };
+		43E50AE3AADD3A4660E3CFC9 /* 13-scream.html in Resources */ = {isa = PBXBuildFile; fileRef = 6ED454BBCB5787C219CAF4EA /* 13-scream.html */; };
+		4735C16AA980A61F2367D1C6 /* 15-birth-of-venus.html in Resources */ = {isa = PBXBuildFile; fileRef = 352BE95750554FE75A5F9E05 /* 15-birth-of-venus.html */; };
 		5D165396578AC249B266F274 /* 01-cosmic.html in Resources */ = {isa = PBXBuildFile; fileRef = CAC12697CE81A04FC90201D8 /* 01-cosmic.html */; };
 		6D2F0000815D2C5FF04264F2 /* 09-lavender.html in Resources */ = {isa = PBXBuildFile; fileRef = 2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */; };
-		706A3DEC4C4C04930E6F1571 /* 13-cyber.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD14922E15B0E332437612 /* 13-cyber.html */; };
-		78AF6559DA071620D034C5C9 /* enhance_backgrounds.py in Resources */ = {isa = PBXBuildFile; fileRef = 61443DAF42AFB4F2F09993BA /* enhance_backgrounds.py */; };
+		7F79343EF7A74A727890D615 /* 17-persistence-memory.html in Resources */ = {isa = PBXBuildFile; fileRef = E22FF2023BF1966ABDC015CC /* 17-persistence-memory.html */; };
 		7FAF278EE8E169DF94E289A7 /* 04-forest.html in Resources */ = {isa = PBXBuildFile; fileRef = 51832FFD459F0A66AE414D99 /* 04-forest.html */; };
+		80238BEFF8D41181A9DF04D4 /* 20-water-lilies.html in Resources */ = {isa = PBXBuildFile; fileRef = E2E97C98C6E9F80C4E197EB0 /* 20-water-lilies.html */; };
 		87B91CC2F24D2F5D4F62F32D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB71F987CEA0667681EF226 /* main.swift */; };
 		8AE1D97CEE7B3F28076C07C5 /* 03-sunset.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A817474AB99B8F90183C402 /* 03-sunset.html */; };
 		A0B3B60B111BE806BB56B801 /* 08-golden.html in Resources */ = {isa = PBXBuildFile; fileRef = 2C37F0EB7ED4037389079F43 /* 08-golden.html */; };
 		A3241251AB0A7347D5FBB70B /* 06-arctic.html in Resources */ = {isa = PBXBuildFile; fileRef = 20B939BA54C7513FC404BF84 /* 06-arctic.html */; };
+		AD5DF54CDBFC70558E984CDD /* 12-starry-night.html in Resources */ = {isa = PBXBuildFile; fileRef = 1416B69573D798C352205DCF /* 12-starry-night.html */; };
 		B23ADEFE02B6AF22B27C3DA2 /* 07-rose.html in Resources */ = {isa = PBXBuildFile; fileRef = F32BDB26CF86A32D6FC52F31 /* 07-rose.html */; };
-		B5DA2AB111624138D46C4E3C /* 14-inferno.html in Resources */ = {isa = PBXBuildFile; fileRef = DC786E9606B60B87F1668C59 /* 14-inferno.html */; };
-		BFD0DE395B2B012A87DC930F /* 18-crystal.html in Resources */ = {isa = PBXBuildFile; fileRef = 8506B1BADF22C60DACBAF206 /* 18-crystal.html */; };
-		CA257AD8C247F0738FAAA91E /* 16-dream.html in Resources */ = {isa = PBXBuildFile; fileRef = 72E0137A1B9DE779EC045058 /* 16-dream.html */; };
-		EC781D66E37DA53ACBDEFEEB /* 17-sunbeam.html in Resources */ = {isa = PBXBuildFile; fileRef = 0555C22EC8804DFEA482F8CF /* 17-sunbeam.html */; };
-		EFDC13995F44A6220024D8B4 /* 19-matrix.html in Resources */ = {isa = PBXBuildFile; fileRef = 728F43D55E2E7D43D82B9F4E /* 19-matrix.html */; };
+		BA6AA0F3D127A2FEAB9BB357 /* 18-creation-adam.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D5548CFE1AAD44B2ADD8B75 /* 18-creation-adam.html */; };
+		DD8F472665AE156228E06C74 /* 16-last-supper.html in Resources */ = {isa = PBXBuildFile; fileRef = C966918AD48F5FCB8F4CA41E /* 16-last-supper.html */; };
 		FE658939D37E8D7CFD8935C0 /* 05-neon.html in Resources */ = {isa = PBXBuildFile; fileRef = 96C55B079E77B85DC152A963 /* 05-neon.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0555C22EC8804DFEA482F8CF /* 17-sunbeam.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "17-sunbeam.html"; sourceTree = "<group>"; };
 		0A817474AB99B8F90183C402 /* 03-sunset.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "03-sunset.html"; sourceTree = "<group>"; };
+		0F47E2B9828F175A0E939B65 /* 19-great-wave.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "19-great-wave.html"; sourceTree = "<group>"; };
 		123CBB9756AD67AECCC23646 /* 10-aurora.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "10-aurora.html"; sourceTree = "<group>"; };
-		199DE46178EC3A3CE824FAEA /* 20-steampunk.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "20-steampunk.html"; sourceTree = "<group>"; };
-		1D01DF91FAFA940C17516F6D /* enhance_remaining.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = enhance_remaining.sh; sourceTree = "<group>"; };
+		1416B69573D798C352205DCF /* 12-starry-night.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "12-starry-night.html"; sourceTree = "<group>"; };
 		20B939BA54C7513FC404BF84 /* 06-arctic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "06-arctic.html"; sourceTree = "<group>"; };
 		2C37F0EB7ED4037389079F43 /* 08-golden.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "08-golden.html"; sourceTree = "<group>"; };
 		2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "09-lavender.html"; sourceTree = "<group>"; };
+		352BE95750554FE75A5F9E05 /* 15-birth-of-venus.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "15-birth-of-venus.html"; sourceTree = "<group>"; };
 		4489E7444C7BDD8233BD56BE /* 02-ocean.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "02-ocean.html"; sourceTree = "<group>"; };
+		4D5548CFE1AAD44B2ADD8B75 /* 18-creation-adam.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "18-creation-adam.html"; sourceTree = "<group>"; };
 		51832FFD459F0A66AE414D99 /* 04-forest.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "04-forest.html"; sourceTree = "<group>"; };
-		61443DAF42AFB4F2F09993BA /* enhance_backgrounds.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = enhance_backgrounds.py; sourceTree = "<group>"; };
-		6453B36F15D9CE2664523645 /* 11-vortex.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "11-vortex.html"; sourceTree = "<group>"; };
-		728F43D55E2E7D43D82B9F4E /* 19-matrix.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "19-matrix.html"; sourceTree = "<group>"; };
-		72E0137A1B9DE779EC045058 /* 16-dream.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "16-dream.html"; sourceTree = "<group>"; };
-		8506B1BADF22C60DACBAF206 /* 18-crystal.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "18-crystal.html"; sourceTree = "<group>"; };
+		5ABAB7C208F1296A3B353DD2 /* 11-mona-lisa.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "11-mona-lisa.html"; sourceTree = "<group>"; };
+		6ED454BBCB5787C219CAF4EA /* 13-scream.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "13-scream.html"; sourceTree = "<group>"; };
 		95F7751C9097BD702553194F /* HTMLWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTMLWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		966B90B11811D15BFBB5963D /* 15-storm.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "15-storm.html"; sourceTree = "<group>"; };
 		96C55B079E77B85DC152A963 /* 05-neon.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "05-neon.html"; sourceTree = "<group>"; };
-		9BAD14922E15B0E332437612 /* 13-cyber.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "13-cyber.html"; sourceTree = "<group>"; };
 		AD4082723F18600DB89332C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ADB71F987CEA0667681EF226 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C966918AD48F5FCB8F4CA41E /* 16-last-supper.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "16-last-supper.html"; sourceTree = "<group>"; };
 		CAC12697CE81A04FC90201D8 /* 01-cosmic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "01-cosmic.html"; sourceTree = "<group>"; };
-		D8B02738C3B33B910B08F618 /* 12-enchanted.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "12-enchanted.html"; sourceTree = "<group>"; };
-		DC786E9606B60B87F1668C59 /* 14-inferno.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "14-inferno.html"; sourceTree = "<group>"; };
+		D8FC8B28D47B9C716F49F9C9 /* 14-pearl-earring.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "14-pearl-earring.html"; sourceTree = "<group>"; };
+		E22FF2023BF1966ABDC015CC /* 17-persistence-memory.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "17-persistence-memory.html"; sourceTree = "<group>"; };
+		E2E97C98C6E9F80C4E197EB0 /* 20-water-lilies.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "20-water-lilies.html"; sourceTree = "<group>"; };
 		F32BDB26CF86A32D6FC52F31 /* 07-rose.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "07-rose.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,18 +104,16 @@
 				2C37F0EB7ED4037389079F43 /* 08-golden.html */,
 				2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */,
 				123CBB9756AD67AECCC23646 /* 10-aurora.html */,
-				6453B36F15D9CE2664523645 /* 11-vortex.html */,
-				D8B02738C3B33B910B08F618 /* 12-enchanted.html */,
-				9BAD14922E15B0E332437612 /* 13-cyber.html */,
-				DC786E9606B60B87F1668C59 /* 14-inferno.html */,
-				966B90B11811D15BFBB5963D /* 15-storm.html */,
-				72E0137A1B9DE779EC045058 /* 16-dream.html */,
-				0555C22EC8804DFEA482F8CF /* 17-sunbeam.html */,
-				8506B1BADF22C60DACBAF206 /* 18-crystal.html */,
-				728F43D55E2E7D43D82B9F4E /* 19-matrix.html */,
-				199DE46178EC3A3CE824FAEA /* 20-steampunk.html */,
-				61443DAF42AFB4F2F09993BA /* enhance_backgrounds.py */,
-				1D01DF91FAFA940C17516F6D /* enhance_remaining.sh */,
+				5ABAB7C208F1296A3B353DD2 /* 11-mona-lisa.html */,
+				1416B69573D798C352205DCF /* 12-starry-night.html */,
+				6ED454BBCB5787C219CAF4EA /* 13-scream.html */,
+				D8FC8B28D47B9C716F49F9C9 /* 14-pearl-earring.html */,
+				352BE95750554FE75A5F9E05 /* 15-birth-of-venus.html */,
+				C966918AD48F5FCB8F4CA41E /* 16-last-supper.html */,
+				E22FF2023BF1966ABDC015CC /* 17-persistence-memory.html */,
+				4D5548CFE1AAD44B2ADD8B75 /* 18-creation-adam.html */,
+				0F47E2B9828F175A0E939B65 /* 19-great-wave.html */,
+				E2E97C98C6E9F80C4E197EB0 /* 20-water-lilies.html */,
 			);
 			name = patterns;
 			path = Wallpapers/patterns;
@@ -194,18 +188,16 @@
 				A0B3B60B111BE806BB56B801 /* 08-golden.html in Resources */,
 				6D2F0000815D2C5FF04264F2 /* 09-lavender.html in Resources */,
 				422D35AF18C8B98433C114A0 /* 10-aurora.html in Resources */,
-				4CFBB8535E30DA125FAC1DD5 /* 11-vortex.html in Resources */,
-				47422F39D9E05B4627DC55E8 /* 12-enchanted.html in Resources */,
-				706A3DEC4C4C04930E6F1571 /* 13-cyber.html in Resources */,
-				B5DA2AB111624138D46C4E3C /* 14-inferno.html in Resources */,
-				099F0E54A67F867B71CEE82A /* 15-storm.html in Resources */,
-				CA257AD8C247F0738FAAA91E /* 16-dream.html in Resources */,
-				EC781D66E37DA53ACBDEFEEB /* 17-sunbeam.html in Resources */,
-				BFD0DE395B2B012A87DC930F /* 18-crystal.html in Resources */,
-				EFDC13995F44A6220024D8B4 /* 19-matrix.html in Resources */,
-				5930B136558E68AFD418C184 /* 20-steampunk.html in Resources */,
-				78AF6559DA071620D034C5C9 /* enhance_backgrounds.py in Resources */,
-				438FE13E629DA96D6D69349E /* enhance_remaining.sh in Resources */,
+				1C905EC0582E1E3F4635B361 /* 11-mona-lisa.html in Resources */,
+				AD5DF54CDBFC70558E984CDD /* 12-starry-night.html in Resources */,
+				43E50AE3AADD3A4660E3CFC9 /* 13-scream.html in Resources */,
+				0E18B6F3AEE14ED8C6C985C4 /* 14-pearl-earring.html in Resources */,
+				4735C16AA980A61F2367D1C6 /* 15-birth-of-venus.html in Resources */,
+				DD8F472665AE156228E06C74 /* 16-last-supper.html in Resources */,
+				7F79343EF7A74A727890D615 /* 17-persistence-memory.html in Resources */,
+				BA6AA0F3D127A2FEAB9BB357 /* 18-creation-adam.html in Resources */,
+				1541F3069E661AE485661DA5 /* 19-great-wave.html in Resources */,
+				80238BEFF8D41181A9DF04D4 /* 20-water-lilies.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

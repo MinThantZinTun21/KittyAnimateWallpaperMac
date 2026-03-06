@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #3a5a4a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const lilyPads=[];for(let i=0;i<12;i++)lilyPads.push({x:Math.random()*W,y:Math.random()*H*0.5+100,r:30+Math.random()*40,rot:Math.random()*Math.PI*2,sp:(Math.random()-0.5)*0.001});
+    const flowers=[];for(let i=0;i<8;i++)flowers.push({x:Math.random()*W,y:Math.random()*H*0.5+150,open:Math.random()*Math.PI*2,sp:Math.random()*0.02+0.01});
+    const reflections=[];for(let i=0;i<30;i++)reflections.push({x:Math.random()*W,y:Math.random()*H*0.3+50,w:5+Math.random()*15,h:20+Math.random()*40,a:Math.random()*0.2+0.05});
+    function draw(t){
+        const g=x.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H));
+        g.addColorStop(0,'#4a6a5a');g.addColorStop(0.3,'#3a5a4a');g.addColorStop(0.6,'#2a4a3a');g.addColorStop(1,'#1a3a2a');
+        x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let ref of reflections){ref.y+=0.2;if(ref.y>H*0.5)ref.y=0;x.globalAlpha=ref.a;x.fillStyle='#f8f0e0';x.beginPath();x.ellipse(ref.x,ref.y,ref.w,ref.h,0,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        for(let lp of lilyPads){lp.rot+=lp.sp;const sway=Math.sin(t*0.001+lp.x*0.01)*0.03;x.save();x.translate(lp.x,lp.y);x.rotate(lp.rot+sway);const lpg=x.createRadialGradient(0,0,0,0,0,lp.r);lpg.addColorStop(0,'#3a6a3a');lpg.addColorStop(0.7,'#2a5a2a');lpg.addColorStop(1,'#1a4a1a');x.fillStyle=lpg;x.beginPath();x.arc(0,0,lp.r,0,Math.PI*2);x.fill();        x.fillStyle='#2a4a2a';x.beginPath();x.moveTo(0,0);x.lineTo(lp.r*0.8,lp.r*0.3);x.lineTo(lp.r*0.7,lp.r*0.5);x.fill();x.strokeStyle='#1a3a1a';x.lineWidth=2;x.beginPath();x.moveTo(0,0);x.quadraticCurveTo(lp.r*0.3,-lp.r*0.2,lp.r*0.8,0);x.stroke();x.restore();}
+        for(let fl of flowers){fl.open+=fl.sp;const pet=Math.sin(fl.open);x.save();x.translate(fl.x,fl.y);const fcg=x.createRadialGradient(0,0,0,0,0,15);fcg.addColorStop(0,'#f4e040');fcg.addColorStop(0.5,'#f4a040');fcg.addColorStop(1,'#c48020');x.fillStyle=fcg;x.beginPath();x.arc(0,0,6,0,Math.PI*2);x.fill();for(let i=0;i<8;i++){const angle=i*Math.PI/4+pet*0.3,px=Math.cos(angle)*12*pet,py=Math.sin(angle)*12*pet;x.fillStyle=`hsla(${300+Math.random()*40},${60+Math.random()*20}%,${70+Math.random()*20}%,0.8)`;x.beginPath();x.ellipse(px,py,8*pet,5,angle,0,Math.PI*2);x.fill();}x.restore();}
+        const sky=x.createLinearGradient(0,0,0,H*0.5);sky.addColorStop(0,'#a8c8d8');sky.addColorStop(0.5,'#7898a8');sky.addColorStop(1,'#4a6878');
+        x.fillStyle=sky;x.fillRect(0,0,W,H*0.5);
+        x.fillStyle='#f8f0e0';x.beginPath();x.moveTo(W*0.1,H*0.45);x.quadraticCurveTo(W*0.2,H*0.3,W*0.35,H*0.35);x.quadraticCurveTo(W*0.45,H*0.4,W*0.5,H*0.32);x.quadraticCurveTo(W*0.6,H*0.28,W*0.75,H*0.38);x.quadraticCurveTo(W*0.85,H*0.42,W*0.9,H*0.35);x.lineTo(W*0.9,H*0.5);x.lineTo(W*0.1,H*0.5);x.fill();
+        const trees=[{x:W*0.15,y:H*0.45,h:80,w:30},{x:W*0.08,y:H*0.47,h:60,w:25}];
+        for(let tr of trees){const sway=Math.sin(t*0.001+tr.x)*3;x.fillStyle='#2a4a2a';x.beginPath();x.moveTo(tr.x-tr.w/2,tr.y);x.lineTo(tr.x-5,tr.y-tr.h+sway);x.lineTo(tr.x,tr.y-tr.h-10+sway);x.lineTo(tr.x+5,tr.y-tr.h+sway);x.lineTo(tr.x+tr.w/2,tr.y);x.fill();}
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#f8f0e0');og.addColorStop(0.5,'#3a5a4a');og.addColorStop(1,'#1a3a2a');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>
