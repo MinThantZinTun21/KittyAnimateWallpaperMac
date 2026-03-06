@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a1628; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c = document.getElementById('canvas'), ctx = c.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight, dpr = window.devicePixelRatio || 1, lastTime = 0;
+    function rs() { W = window.innerWidth; H = window.innerHeight; c.width = W*dpr; c.height = H*dpr; c.style.width = W+'px'; c.style.height = H+'px'; ctx.scale(dpr,dpr); }
+    rs();
+    const cat = { x: W/2, y: H/2+40, bodyColor: '#20b2aa', accentColor: '#48d1cc', headAngle: 0, tailAngle: 0, tailVel: 0, blinkTimer: 2000, isBlinking: false, breathPhase: 0, jumpY: 0, jumpVel: 0, earTwitch: 0, pawWave: 0, rollAngle: 0, cursorX: W/2 };
+    const state = { pose: 'idle' };
+    const poses = ['idle','sit','wave','roll','walk','curl','stretch','jump'];
+    const waves=[],bubbles=[],particles=[];
+    for(let i=0;i<6;i++)waves.push({y:H*0.5+i*H*0.1,amp:15+i*8,freq:0.008+i*0.003,speed:0.0008+i*0.0002,phase:i,color:[20+i*15,130+i*20,180+i*10]});
+    for(let i=0;i<40;i++)bubbles.push({x:Math.random()*W,y:Math.random()*H,r:2+Math.random()*8,vx:(Math.random()-0.5)*0.3,vy:-0.5-Math.random()*1.5,phase:Math.random()*Math.PI*2});
+    for(let i=0;i<60;i++)particles.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,s:Math.random()*2+0.5,a:Math.random()*0.5+0.2,phase:Math.random()*Math.PI*2});
+    function up(dt, t) {
+        cat.breathPhase = Math.sin(t*0.002)*0.03;
+        cat.blinkTimer -= dt;
+        if (cat.blinkTimer <= 0) { cat.isBlinking = true; cat.blinkTimer = 3000 + Math.random()*4000; }
+        if (cat.isBlinking && cat.blinkTimer < 150) cat.isBlinking = false;
+        if (Math.random() < 0.002) cat.earTwitch = 1;
+        cat.earTwitch *= 0.95;
+        const tt = Math.sin(t*0.004)*0.4 + (cat.cursorX - cat.x)*0.0003;
+        cat.tailVel += (tt - cat.tailAngle)*0.1; cat.tailVel *= 0.85; cat.tailAngle += cat.tailVel;
+        cat.headAngle += ((cat.cursorX - cat.x)*0.0005 - cat.headAngle)*0.1;
+        if (state.pose === 'wave') cat.pawWave = Math.sin(t*0.008)*0.6; else cat.pawWave *= 0.92;
+        if (state.pose === 'jump') { cat.jumpVel -= 0.6; cat.jumpY += cat.jumpVel; if (cat.jumpY <= 0) { cat.jumpY=0; cat.jumpVel=0; state.pose='idle'; } }
+        if (state.pose === 'roll') { cat.rollAngle += 0.12; if (cat.rollAngle >= Math.PI*2) { cat.rollAngle=0; state.pose='idle'; } }
+    }
+    function dc(t) {
+        ctx.save(); ctx.translate(cat.x, cat.y+cat.jumpY); ctx.rotate(cat.rollAngle); ctx.scale(1+cat.breathPhase,1+cat.breathPhase);
+        const s = Math.min(W,H)/600;
+        ctx.fillStyle='rgba(0,0,0,0.2)'; ctx.beginPath(); ctx.ellipse(0,70*s,55*s,12*s,0,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle=cat.bodyColor; ctx.lineWidth=12*s; ctx.beginPath(); ctx.moveTo(50*s,30*s); ctx.quadraticCurveTo(100*s+Math.sin(t*0.004)*20*s,20*s,120*s+Math.sin(t*0.003)*30*s,-20*s+cat.tailAngle*50*s); ctx.stroke();
+        ctx.fillStyle=cat.bodyColor; ctx.beginPath(); ctx.ellipse(0,30*s,55*s,45*s,0,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle=cat.accentColor; ctx.globalAlpha=0.4; ctx.beginPath(); ctx.ellipse(0,35*s,35*s,25*s,0,0,Math.PI); ctx.fill(); ctx.globalAlpha=1;
+        ctx.fillStyle=cat.bodyColor;
+        if (state.pose==='walk') { const lo=Math.sin(t*0.015)*10; ctx.beginPath(); ctx.ellipse(-30*s,65*s+lo,12*s,20*s,0,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.ellipse(30*s,65*s-lo,12*s,20*s,0,0,Math.PI*2); ctx.fill(); }
+        else { ctx.beginPath(); ctx.ellipse(-35*s,65*s,10*s,18*s,0,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.ellipse(35*s,65*s,10*s,18*s,0,0,Math.PI*2); ctx.fill(); }
+        if (state.pose==='wave') { ctx.beginPath(); ctx.ellipse(40*s,20*s+cat.pawWave*30*s,12*s,10*s,0.3,0,Math.PI*2); ctx.fill(); }
+        ctx.save(); ctx.translate(0,-20*s); ctx.rotate(cat.headAngle);
+        ctx.fillStyle=cat.bodyColor; ctx.beginPath(); ctx.arc(0,0,40*s,0,Math.PI*2); ctx.fill();
+        const et = cat.earTwitch;
+        ctx.fillStyle=cat.bodyColor; ctx.beginPath(); ctx.moveTo(-30*s,-25*s); ctx.lineTo(-25*s-et*5*s,-60*s); ctx.lineTo(-5*s,-30*s); ctx.fill(); ctx.beginPath(); ctx.moveTo(30*s,-25*s); ctx.lineTo(25*s+et*5*s,-60*s); ctx.lineTo(5*s,-30*s); ctx.fill();
+        ctx.fillStyle='#ffb6c1'; ctx.beginPath(); ctx.moveTo(-25*s,-28*s); ctx.lineTo(-22*s-et*3*s,-48*s); ctx.lineTo(-10*s,-30*s); ctx.fill(); ctx.beginPath(); ctx.moveTo(25*s,-28*s); ctx.lineTo(22*s+et*3*s,-48*s); ctx.lineTo(10*s,-30*s); ctx.fill();
+        const ey = -5*s;
+        ctx.fillStyle='#333';
+        if (!cat.isBlinking) { ctx.beginPath(); ctx.ellipse(-15*s,ey,8*s,10*s,0,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.ellipse(15*s,ey,8*s,10*s,0,0,Math.PI*2); ctx.fill(); ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(-17*s,ey-3*s,3*s,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(13*s,ey-3*s,3*s,0,Math.PI*2); ctx.fill(); }
+        else { ctx.lineWidth=3*s; ctx.beginPath(); ctx.moveTo(-23*s,ey); ctx.lineTo(-7*s,ey); ctx.stroke(); ctx.beginPath(); ctx.moveTo(7*s,ey); ctx.lineTo(23*s,ey); ctx.stroke(); }
+        ctx.fillStyle='#ffb6c1'; ctx.beginPath(); ctx.moveTo(0,10*s); ctx.lineTo(-6*s,18*s); ctx.lineTo(6*s,18*s); ctx.fill();
+        ctx.strokeStyle='#333'; ctx.lineWidth=2*s; ctx.beginPath(); ctx.moveTo(0,18*s); ctx.lineTo(0,25*s); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,25*s); ctx.quadraticCurveTo(-10*s,32*s,-15*s,25*s); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,25*s); ctx.quadraticCurveTo(10*s,32*s,15*s,25*s); ctx.stroke();
+        ctx.strokeStyle='#888'; ctx.lineWidth=1*s;
+        for(let i=0;i<3;i++) { ctx.beginPath(); ctx.moveTo(-20*s,15*s+i*5*s); ctx.lineTo(-45*s,10*s+i*6*s); ctx.stroke(); ctx.beginPath(); ctx.moveTo(20*s,15*s+i*5*s); ctx.lineTo(45*s,10*s+i*6*s); ctx.stroke(); }
+        ctx.restore(); ctx.restore();
+    }
+    function db(t) {
+        // Deep ocean gradient with animated light rays
+        const lightX=W/2+Math.sin(t*0.0004)*W*0.3;
+        const g=ctx.createRadialGradient(lightX,-100,0,lightX,H*0.6,Math.max(W,H));
+        g.addColorStop(0,'#0088bb');g.addColorStop(0.2,'#006994');g.addColorStop(0.5,'#004a70');g.addColorStop(0.8,'#002a40');g.addColorStop(1,'#001018');
+        ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+        // Caustic light patterns on ocean floor
+        ctx.globalAlpha=0.15;
+        for(let i=0;i<8;i++){ctx.beginPath();ctx.strokeStyle=`hsla(${190+i*10},70%,60%,0.4)`;ctx.lineWidth=2;for(let x=0;x<=W;x+=30){const y=H*0.7+Math.sin(x*0.02+t*0.001+i)*40+Math.sin(x*0.05+t*0.002)*20;x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.stroke();}
+        // Multi-layer animated waves
+        ctx.globalAlpha=0.25;
+        for(let w of waves){ctx.beginPath();ctx.fillStyle=`rgba(${w.color[0]},${w.color[1]},${w.color[2]},0.4)`;ctx.moveTo(0,H);for(let x=0;x<=W;x+=20){const wy=w.y+Math.sin(x*w.freq+t*w.speed*1000+w.phase)*w.amp*Math.cos(t*0.0003);ctx.lineTo(x,wy);}ctx.lineTo(W,H);ctx.fill();}
+        // Rising bubbles with wobble
+        ctx.globalAlpha=0.6;
+        for(let b of bubbles){b.y+=b.vy;b.x+=b.vx+Math.sin(t*0.003+b.phase)*0.5;if(b.y<-20){b.y=H+20;b.x=Math.random()*W;}if(b.x<0)b.x=W;if(b.x>W)b.x=0;const pulse=1+Math.sin(t*0.005+b.phase)*0.2;ctx.fillStyle=`rgba(200,240,255,${0.3+Math.sin(t*0.004+b.phase)*0.3})`;ctx.beginPath();ctx.arc(b.x,b.y,b.r*pulse,0,Math.PI*2);ctx.fill();if(b.r>5){ctx.strokeStyle='rgba(255,255,255,0.3)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(b.x,b.y,b.r*pulse*0.6,0,Math.PI*2);ctx.stroke();}}
+        // Floating particles/plankton
+        ctx.globalAlpha=0.4;
+        for(let p of particles){p.x+=p.vx;p.y+=p.vy+Math.sin(t*0.001+p.phase)*0.2;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.fillStyle=`rgba(${100+Math.sin(t*0.002+p.phase)*50},220,255,${p.a})`;ctx.beginPath();ctx.arc(p.x,p.y,p.s*(0.8+Math.sin(t*0.003+p.phase)*0.4),0,Math.PI*2);ctx.fill();}
+        // Light rays from surface
+        ctx.globalAlpha=0.08;
+        const rayCount=12;
+        for(let i=0;i<rayCount;i++){const rx=(i/rayCount)*W+Math.sin(t*0.001+i)*100;const rg=ctx.createLinearGradient(rx,0,rx+Math.sin(t*0.002+i)*50,H*0.8);rg.addColorStop(0,'rgba(150,220,255,0.5)');rg.addColorStop(1,'transparent');ctx.fillStyle=rg;ctx.beginPath();ctx.moveTo(rx-30,0);ctx.lineTo(rx+30,0);ctx.lineTo(rx+100+Math.sin(t*0.003+i)*50,H*0.6);ctx.lineTo(rx-100+Math.sin(t*0.003+i)*50,H*0.6);ctx.fill();}
+        ctx.globalAlpha=1;
+    }
+    function anim(ts) {
+        const dt=Math.min(ts-lastTime,50); lastTime=ts;
+        ctx.clearRect(0,0,W,H); db(ts); up(dt,ts); dc(ts); requestAnimationFrame(anim);
+    }
+    c.addEventListener('mousemove', e => { cat.cursorX=e.clientX; });
+    c.addEventListener('click', () => { if(state.pose==='idle'){state.pose='jump';cat.jumpVel=15;} });
+    window.addEventListener('keydown', e => { if(e.key==='c'||e.key==='C'){state.pose=poses[(poses.indexOf(state.pose)+1)%poses.length];if(state.pose==='roll')cat.rollAngle=0;} });
+    window.addEventListener('resize', rs);
+    requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		099F0E54A67F867B71CEE82A /* 15-storm.html in Resources */ = {isa = PBXBuildFile; fileRef = 966B90B11811D15BFBB5963D /* 15-storm.html */; };
+		0CA9C8EBE1E0D5A77C355F0D /* 02-ocean.html in Resources */ = {isa = PBXBuildFile; fileRef = 4489E7444C7BDD8233BD56BE /* 02-ocean.html */; };
+		422D35AF18C8B98433C114A0 /* 10-aurora.html in Resources */ = {isa = PBXBuildFile; fileRef = 123CBB9756AD67AECCC23646 /* 10-aurora.html */; };
+		438FE13E629DA96D6D69349E /* enhance_remaining.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1D01DF91FAFA940C17516F6D /* enhance_remaining.sh */; };
+		47422F39D9E05B4627DC55E8 /* 12-enchanted.html in Resources */ = {isa = PBXBuildFile; fileRef = D8B02738C3B33B910B08F618 /* 12-enchanted.html */; };
+		4CFBB8535E30DA125FAC1DD5 /* 11-vortex.html in Resources */ = {isa = PBXBuildFile; fileRef = 6453B36F15D9CE2664523645 /* 11-vortex.html */; };
+		5930B136558E68AFD418C184 /* 20-steampunk.html in Resources */ = {isa = PBXBuildFile; fileRef = 199DE46178EC3A3CE824FAEA /* 20-steampunk.html */; };
+		5D165396578AC249B266F274 /* 01-cosmic.html in Resources */ = {isa = PBXBuildFile; fileRef = CAC12697CE81A04FC90201D8 /* 01-cosmic.html */; };
+		6D2F0000815D2C5FF04264F2 /* 09-lavender.html in Resources */ = {isa = PBXBuildFile; fileRef = 2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */; };
+		706A3DEC4C4C04930E6F1571 /* 13-cyber.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD14922E15B0E332437612 /* 13-cyber.html */; };
+		78AF6559DA071620D034C5C9 /* enhance_backgrounds.py in Resources */ = {isa = PBXBuildFile; fileRef = 61443DAF42AFB4F2F09993BA /* enhance_backgrounds.py */; };
+		7FAF278EE8E169DF94E289A7 /* 04-forest.html in Resources */ = {isa = PBXBuildFile; fileRef = 51832FFD459F0A66AE414D99 /* 04-forest.html */; };
+		87B91CC2F24D2F5D4F62F32D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB71F987CEA0667681EF226 /* main.swift */; };
+		8AE1D97CEE7B3F28076C07C5 /* 03-sunset.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A817474AB99B8F90183C402 /* 03-sunset.html */; };
+		A0B3B60B111BE806BB56B801 /* 08-golden.html in Resources */ = {isa = PBXBuildFile; fileRef = 2C37F0EB7ED4037389079F43 /* 08-golden.html */; };
+		A3241251AB0A7347D5FBB70B /* 06-arctic.html in Resources */ = {isa = PBXBuildFile; fileRef = 20B939BA54C7513FC404BF84 /* 06-arctic.html */; };
+		B23ADEFE02B6AF22B27C3DA2 /* 07-rose.html in Resources */ = {isa = PBXBuildFile; fileRef = F32BDB26CF86A32D6FC52F31 /* 07-rose.html */; };
+		B5DA2AB111624138D46C4E3C /* 14-inferno.html in Resources */ = {isa = PBXBuildFile; fileRef = DC786E9606B60B87F1668C59 /* 14-inferno.html */; };
+		BFD0DE395B2B012A87DC930F /* 18-crystal.html in Resources */ = {isa = PBXBuildFile; fileRef = 8506B1BADF22C60DACBAF206 /* 18-crystal.html */; };
+		CA257AD8C247F0738FAAA91E /* 16-dream.html in Resources */ = {isa = PBXBuildFile; fileRef = 72E0137A1B9DE779EC045058 /* 16-dream.html */; };
+		EC781D66E37DA53ACBDEFEEB /* 17-sunbeam.html in Resources */ = {isa = PBXBuildFile; fileRef = 0555C22EC8804DFEA482F8CF /* 17-sunbeam.html */; };
+		EFDC13995F44A6220024D8B4 /* 19-matrix.html in Resources */ = {isa = PBXBuildFile; fileRef = 728F43D55E2E7D43D82B9F4E /* 19-matrix.html */; };
+		FE658939D37E8D7CFD8935C0 /* 05-neon.html in Resources */ = {isa = PBXBuildFile; fileRef = 96C55B079E77B85DC152A963 /* 05-neon.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0555C22EC8804DFEA482F8CF /* 17-sunbeam.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "17-sunbeam.html"; sourceTree = "<group>"; };
+		0A817474AB99B8F90183C402 /* 03-sunset.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "03-sunset.html"; sourceTree = "<group>"; };
+		123CBB9756AD67AECCC23646 /* 10-aurora.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "10-aurora.html"; sourceTree = "<group>"; };
+		199DE46178EC3A3CE824FAEA /* 20-steampunk.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "20-steampunk.html"; sourceTree = "<group>"; };
+		1D01DF91FAFA940C17516F6D /* enhance_remaining.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = enhance_remaining.sh; sourceTree = "<group>"; };
+		20B939BA54C7513FC404BF84 /* 06-arctic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "06-arctic.html"; sourceTree = "<group>"; };
+		2C37F0EB7ED4037389079F43 /* 08-golden.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "08-golden.html"; sourceTree = "<group>"; };
+		2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "09-lavender.html"; sourceTree = "<group>"; };
+		4489E7444C7BDD8233BD56BE /* 02-ocean.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "02-ocean.html"; sourceTree = "<group>"; };
+		51832FFD459F0A66AE414D99 /* 04-forest.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "04-forest.html"; sourceTree = "<group>"; };
+		61443DAF42AFB4F2F09993BA /* enhance_backgrounds.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = enhance_backgrounds.py; sourceTree = "<group>"; };
+		6453B36F15D9CE2664523645 /* 11-vortex.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "11-vortex.html"; sourceTree = "<group>"; };
+		728F43D55E2E7D43D82B9F4E /* 19-matrix.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "19-matrix.html"; sourceTree = "<group>"; };
+		72E0137A1B9DE779EC045058 /* 16-dream.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "16-dream.html"; sourceTree = "<group>"; };
+		8506B1BADF22C60DACBAF206 /* 18-crystal.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "18-crystal.html"; sourceTree = "<group>"; };
+		95F7751C9097BD702553194F /* HTMLWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTMLWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		966B90B11811D15BFBB5963D /* 15-storm.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "15-storm.html"; sourceTree = "<group>"; };
+		96C55B079E77B85DC152A963 /* 05-neon.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "05-neon.html"; sourceTree = "<group>"; };
+		9BAD14922E15B0E332437612 /* 13-cyber.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "13-cyber.html"; sourceTree = "<group>"; };
+		AD4082723F18600DB89332C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ADB71F987CEA0667681EF226 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CAC12697CE81A04FC90201D8 /* 01-cosmic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "01-cosmic.html"; sourceTree = "<group>"; };
+		D8B02738C3B33B910B08F618 /* 12-enchanted.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "12-enchanted.html"; sourceTree = "<group>"; };
+		DC786E9606B60B87F1668C59 /* 14-inferno.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "14-inferno.html"; sourceTree = "<group>"; };
+		F32BDB26CF86A32D6FC52F31 /* 07-rose.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "07-rose.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		02BBF06ED61C79349E61FF2C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ADB71F987CEA0667681EF226 /* main.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		560597C859AD0769B27F8D28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD4082723F18600DB89332C2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5822C6EA6EF1A7DB1DB8826D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95F7751C9097BD702553194F /* HTMLWall.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65C09CC058BE0B373AD507D9 = {
+			isa = PBXGroup;
+			children = (
+				02BBF06ED61C79349E61FF2C /* App */,
+				AA355B3E8D137E84AAB0BD4B /* patterns */,
+				560597C859AD0769B27F8D28 /* Resources */,
+				5822C6EA6EF1A7DB1DB8826D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA355B3E8D137E84AAB0BD4B /* patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CAC12697CE81A04FC90201D8 /* 01-cosmic.html */,
+				4489E7444C7BDD8233BD56BE /* 02-ocean.html */,
+				0A817474AB99B8F90183C402 /* 03-sunset.html */,
+				51832FFD459F0A66AE414D99 /* 04-forest.html */,
+				96C55B079E77B85DC152A963 /* 05-neon.html */,
+				20B939BA54C7513FC404BF84 /* 06-arctic.html */,
+				F32BDB26CF86A32D6FC52F31 /* 07-rose.html */,
+				2C37F0EB7ED4037389079F43 /* 08-golden.html */,
+				2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */,
+				123CBB9756AD67AECCC23646 /* 10-aurora.html */,
+				6453B36F15D9CE2664523645 /* 11-vortex.html */,
+				D8B02738C3B33B910B08F618 /* 12-enchanted.html */,
+				9BAD14922E15B0E332437612 /* 13-cyber.html */,
+				DC786E9606B60B87F1668C59 /* 14-inferno.html */,
+				966B90B11811D15BFBB5963D /* 15-storm.html */,
+				72E0137A1B9DE779EC045058 /* 16-dream.html */,
+				0555C22EC8804DFEA482F8CF /* 17-sunbeam.html */,
+				8506B1BADF22C60DACBAF206 /* 18-crystal.html */,
+				728F43D55E2E7D43D82B9F4E /* 19-matrix.html */,
+				199DE46178EC3A3CE824FAEA /* 20-steampunk.html */,
+				61443DAF42AFB4F2F09993BA /* enhance_backgrounds.py */,
+				1D01DF91FAFA940C17516F6D /* enhance_remaining.sh */,
+			);
+			name = patterns;
+			path = Wallpapers/patterns;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2DFC2E77262CC13908CA32C /* HTMLWall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E49CC29DB93146F97B55BF2 /* Build configuration list for PBXNativeTarget "HTMLWall" */;
+			buildPhases = (
+				C384E61240FA2BE170AD87D1 /* Sources */,
+				CA2E57DCF7206F0BAF233E1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTMLWall;
+			packageProductDependencies = (
+			);
+			productName = HTMLWall;
+			productReference = 95F7751C9097BD702553194F /* HTMLWall.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		34BB1C12C6D646CEE01BDBF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F2DFC2E77262CC13908CA32C = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 8057B9D23D274C22618B1EA9 /* Build configuration list for PBXProject "HTMLWall" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 65C09CC058BE0B373AD507D9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2DFC2E77262CC13908CA32C /* HTMLWall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA2E57DCF7206F0BAF233E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D165396578AC249B266F274 /* 01-cosmic.html in Resources */,
+				0CA9C8EBE1E0D5A77C355F0D /* 02-ocean.html in Resources */,
+				8AE1D97CEE7B3F28076C07C5 /* 03-sunset.html in Resources */,
+				7FAF278EE8E169DF94E289A7 /* 04-forest.html in Resources */,
+				FE658939D37E8D7CFD8935C0 /* 05-neon.html in Resources */,
+				A3241251AB0A7347D5FBB70B /* 06-arctic.html in Resources */,
+				B23ADEFE02B6AF22B27C3DA2 /* 07-rose.html in Resources */,
+				A0B3B60B111BE806BB56B801 /* 08-golden.html in Resources */,
+				6D2F0000815D2C5FF04264F2 /* 09-lavender.html in Resources */,
+				422D35AF18C8B98433C114A0 /* 10-aurora.html in Resources */,
+				4CFBB8535E30DA125FAC1DD5 /* 11-vortex.html in Resources */,
+				47422F39D9E05B4627DC55E8 /* 12-enchanted.html in Resources */,
+				706A3DEC4C4C04930E6F1571 /* 13-cyber.html in Resources */,
+				B5DA2AB111624138D46C4E3C /* 14-inferno.html in Resources */,
+				099F0E54A67F867B71CEE82A /* 15-storm.html in Resources */,
+				CA257AD8C247F0738FAAA91E /* 16-dream.html in Resources */,
+				EC781D66E37DA53ACBDEFEEB /* 17-sunbeam.html in Resources */,
+				BFD0DE395B2B012A87DC930F /* 18-crystal.html in Resources */,
+				EFDC13995F44A6220024D8B4 /* 19-matrix.html in Resources */,
+				5930B136558E68AFD418C184 /* 20-steampunk.html in Resources */,
+				78AF6559DA071620D034C5C9 /* enhance_backgrounds.py in Resources */,
+				438FE13E629DA96D6D69349E /* enhance_remaining.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C384E61240FA2BE170AD87D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87B91CC2F24D2F5D4F62F32D /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1489A3012E2BBE7D6B2423E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.htmlwall.app;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		45D526A2B707FDF2F2E3E1C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.htmlwall.app;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6498EA8869EDA564A93EB9B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		845391AA97B4C15156FCF085 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E49CC29DB93146F97B55BF2 /* Build configuration list for PBXNativeTarget "HTMLWall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1489A3012E2BBE7D6B2423E7 /* Debug */,
+				45D526A2B707FDF2F2E3E1C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8057B9D23D274C22618B1EA9 /* Build configuration list for PBXProject "HTMLWall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845391AA97B4C15156FCF085 /* Debug */,
+				6498EA8869EDA564A93EB9B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 34BB1C12C6D646CEE01BDBF0 /* Project object */;
+}
