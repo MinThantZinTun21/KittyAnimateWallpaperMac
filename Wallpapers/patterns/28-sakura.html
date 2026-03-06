@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a2e; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const flowers=[];for(let i=0;i<20;i++)flowers.push({x:Math.random()*W,y:Math.random()*H*0.5+H*0.4,petals:5+Math.floor(Math.random()*3),size:20+Math.random()*30,phase:Math.random()*Math.PI*2});
+    const petals=[];for(let i=0;i<50;i++)petals.push({x:Math.random()*W,y:Math.random()*H*0.7,vx:(Math.random()-0.5)*1,vy:Math.random()*1+0.5,rot:Math.random()*Math.PI*2,sp:Math.random()*0.05+0.02,size:5+Math.random()*10});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#2a1a3e');g.addColorStop(0.5,'#1a1a2e');g.addColorStop(1,'#0a0a1e');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let p of petals){p.x+=p.vx+Math.sin(t*0.001+p.y*0.01)*0.5;p.y+=p.vy;p.rot+=p.sp;if(p.y>H){p.y=0;p.x=Math.random()*W;}x.save();x.translate(p.x,p.y);x.rotate(p.rot);x.fillStyle='rgba(255,150,200,0.6)';x.beginPath();x.ellipse(0,0,p.size,p.size*0.5,0,0,Math.PI*2);x.fill();x.restore();}
+        for(let fl of flowers){const sway=Math.sin(t*0.002+fl.phase)*3;x.strokeStyle='#2a5a2a';x.lineWidth=3;x.beginPath();x.moveTo(fl.x,fl.y+fl.size);x.quadraticCurveTo(fl.x+sway,fl.y+fl.size/2,fl.x,fl.y);x.stroke();for(let i=0;i<fl.petals;i++){const angle=i*Math.PI*2/fl.petals+t*0.001;const px=fl.x+Math.cos(angle)*fl.size*0.6;const py=fl.y+Math.sin(angle)*fl.size*0.6;x.fillStyle=`hsla(${300+Math.random()*40},70%,${60+Math.random()*20}%,0.8)`;x.beginPath();x.ellipse(px,py,fl.size*0.4,fl.size*0.2,angle,0,Math.PI*2);x.fill();}x.fillStyle='#f4d03f';x.beginPath();x.arc(fl.x,fl.y,fl.size*0.2,0,Math.PI*2);x.fill();}
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#ff69b4');og.addColorStop(1,'#1a1a2e');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

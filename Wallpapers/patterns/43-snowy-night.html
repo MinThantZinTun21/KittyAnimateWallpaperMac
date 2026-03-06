@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a1020; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const snow=[];for(let i=0;i<150;i++)snow.push({x:Math.random()*W,y:Math.random()*H,speed:0.5+Math.random()*1.5,size:1+Math.random()*3});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1a2535');g.addColorStop(0.5,'#0a1520');g.addColorStop(1,'#050a10');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let s of snow){s.y+=s.speed;s.x+=Math.sin(t*0.001+s.y*0.01)*0.3;if(s.y>H){s.y=-10;s.x=Math.random()*W;}x.fillStyle='#fff';x.globalAlpha=0.7;x.beginPath();x.arc(s.x,s.y,s.size,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        x.fillStyle='#1a2535';x.beginPath();x.moveTo(0,H);x.lineTo(0,H-80);x.quadraticCurveTo(W*0.2,H-120,W*0.4,H-100);x.quadraticCurveTo(W*0.6,H-80,W*0.8,H-110);x.quadraticCurveTo(W*0.9,H-140,W,H-100);x.lineTo(W,H);x.fill();
+        x.globalAlpha=0.1;const lg=x.createLinearGradient(0,0,W,H);lg.addColorStop(0,'#a0c0e0');lg.addColorStop(1,'#050a10');x.fillStyle=lg;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

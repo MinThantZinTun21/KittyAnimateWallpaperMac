@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a2e; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const particles=[];for(let i=0;i<60;i++)particles.push({x:Math.random()*W,y:Math.random()*H,size:2+Math.random()*3,color:`hsl(${Math.random()*60+180},80%,${50+Math.random()*30}%)`,sp:Math.random()*2+1});
+    const bubbles=[];for(let i=0;i<20;i++)bubbles.push({x:Math.random()*W,y:H+Math.random()*50,r:10+Math.random()*20,sp:0.5+Math.random()*1});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1a2a3e');g.addColorStop(0.5,'#2a3a4e');g.addColorStop(1,'#1a2a3e');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let p of particles){p.y-=p.sp;if(p.y<0){p.y=H;p.x=Math.random()*W;}x.fillStyle=p.color;x.globalAlpha=0.6;x.beginPath();x.arc(p.x,p.y,p.size,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        for(let b of bubbles){b.y-=b.sp;b.x+=Math.sin(t*0.002+b.y*0.01)*0.5;if(b.y<-b.r*2){b.y=H+Math.random()*50;b.x=Math.random()*W;}x.strokeStyle='rgba(150,200,255,0.3)';x.lineWidth=2;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.stroke();}
+        const cx=W*0.5,cy=H*0.6,scale=Math.min(W,H)/500;
+        x.save();x.translate(cx,cy);x.scale(scale,scale);
+        x.fillStyle='#3a4a5e';x.beginPath();x.moveTo(-150,120);x.lineTo(-150,-50);x.quadraticCurveTo(-130,-120,-80,-150);x.lineTo(80,-150);x.quadraticCurveTo(130,-120,150,-50);x.lineTo(150,120);x.fill();
+        x.fillStyle='#4a5a6e';x.beginPath();x.moveTo(-120,120);x.lineTo(-120,-30);x.quadraticCurveTo(-100,-90,-60,-120);x.lineTo(60,-120);x.quadraticCurveTo(100,-90,120,-30);x.lineTo(120,120);x.fill();
+        for(let i=0;i<4;i++){const y=-80+i*40;x.fillStyle='#f4d03f';x.globalAlpha=0.2+Math.sin(t*0.003+i)*0.2;x.beginPath();x.rect(-40,y,25,35);x.beginPath();x.rect(15,y,25,35);x.fill();}x.globalAlpha=1;
+        x.restore();
+        x.globalAlpha=0.1;const lg=x.createLinearGradient(0,0,W,H);lg.addColorStop(0,'#60a0f0');lg.addColorStop(1,'#1a2a3e');x.fillStyle=lg;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

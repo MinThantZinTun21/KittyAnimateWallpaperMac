@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #2a2a1a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const fireflies=[];for(let i=0;i<40;i++)fireflies.push({x:Math.random()*W,y:Math.random()*H,phase:Math.random()*Math.PI*2,sp:Math.random()*0.03+0.01});
+    const grass=[];for(let i=0;i<50;i++)grass.push({x:Math.random()*W,y:H,len:50+Math.random()*80,phase:Math.random()*Math.PI*2});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1a2a1a');g.addColorStop(0.5,'#2a3a2a');g.addColorStop(1,'#1a2a1a');x.fillStyle=g;x.fillRect(0,0,W,H);
+        const moonx=W*0.8,moony=H*0.15;
+        const mg=x.createRadialGradient(moonx,moony,0,moonx,moony,80);mg.addColorStop(0,'#f4e8c0');mg.addColorStop(0.5,'#d4c890');mg.addColorStop(1,'transparent');x.fillStyle=mg;x.beginPath();x.arc(moonx,moony,80,0,Math.PI*2);x.fill();
+        for(let f of fireflies){f.phase+=f.sp;const glow=Math.sin(f.phase)>0?1:0;x.fillStyle='#f4ff40';x.globalAlpha=glow*0.8;x.beginPath();x.arc(f.x,f.y,3,0,Math.PI*2);x.fill();x.globalAlpha=glow*0.3;x.beginPath();x.arc(f.x,f.y,10,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        for(let g of grass){const sway=Math.sin(t*0.002+g.phase)*10;x.strokeStyle='#1a3a1a';x.lineWidth=2;x.beginPath();x.moveTo(g.x,g.y);x.quadraticCurveTo(g.x+sway,g.y-g.len/2,g.x+sway*1.5,g.y-g.len);x.stroke();}
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#f4ff40');og.addColorStop(1,'#1a2a1a');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

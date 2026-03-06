@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a0a0a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const particles=[];for(let i=0;i<80;i++)particles.push({x:Math.random()*W,y:Math.random()*H,size:1+Math.random()*2,color:`hsl(${Math.random()*360},70%,50%)`});
+    function draw(t){
+        x.fillStyle='#000';x.fillRect(0,0,W,H);
+        const cx=W/2,cy=H/2;
+        for(let i=0;i<6;i++){const r=40+i*35,rot=t*0.0005+i*0.3;x.save();x.translate(cx,cy);x.rotate(rot);x.strokeStyle=`hsla(${i*60},80%,50%,0.3)`;x.lineWidth=2;for(let j=0;j<8;j++){const a=j*Math.PI/4;x.beginPath();x.moveTo(Math.cos(a)*r,Math.sin(a)*r);x.lineTo(Math.cos(a)*(r+20),Math.sin(a)*(r+20));x.stroke();}x.restore();}
+        for(let p of particles){p.x+=Math.sin(t*0.001+p.y*0.01)*0.3;p.y+=Math.cos(t*0.001+p.x*0.01)*0.3;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;x.fillStyle=p.color;x.globalAlpha=0.7;x.beginPath();x.arc(p.x,p.y,p.size,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        x.globalAlpha=0.1;x.fillStyle='#fff';x.beginPath();x.arc(cx,cy,15,0,Math.PI*2);x.fill();x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

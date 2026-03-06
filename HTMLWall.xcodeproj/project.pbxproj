@@ -7,53 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031C0B798DFC90B504E27263 /* 21-star-wars.html in Resources */ = {isa = PBXBuildFile; fileRef = BC53EA200408220CEDD49A39 /* 21-star-wars.html */; };
+		057325AE5E5B2D09789F48E5 /* 47-sunset-birds.html in Resources */ = {isa = PBXBuildFile; fileRef = 064B26BA0B987527F7C77AAD /* 47-sunset-birds.html */; };
+		0A46DDCF81F33EC9FC4B15B0 /* 42-falling-petals.html in Resources */ = {isa = PBXBuildFile; fileRef = 376AAB99E9D5DCF94DFB6E91 /* 42-falling-petals.html */; };
+		0C4B32F7DA29A28453A3A8EA /* 38-purple-mountains.html in Resources */ = {isa = PBXBuildFile; fileRef = 1DA5F72B257B57E9FDE363C8 /* 38-purple-mountains.html */; };
 		0CA9C8EBE1E0D5A77C355F0D /* 02-ocean.html in Resources */ = {isa = PBXBuildFile; fileRef = 4489E7444C7BDD8233BD56BE /* 02-ocean.html */; };
 		0E18B6F3AEE14ED8C6C985C4 /* 14-pearl-earring.html in Resources */ = {isa = PBXBuildFile; fileRef = D8FC8B28D47B9C716F49F9C9 /* 14-pearl-earring.html */; };
 		1541F3069E661AE485661DA5 /* 19-great-wave.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F47E2B9828F175A0E939B65 /* 19-great-wave.html */; };
+		1B305874184690860D95F9CB /* 37-stormtrooper.html in Resources */ = {isa = PBXBuildFile; fileRef = 48938E5E62595482E3CE6C1E /* 37-stormtrooper.html */; };
 		1C905EC0582E1E3F4635B361 /* 11-mona-lisa.html in Resources */ = {isa = PBXBuildFile; fileRef = 5ABAB7C208F1296A3B353DD2 /* 11-mona-lisa.html */; };
+		37E0CFE99731BA3095BDF807 /* 26-northern-lights.html in Resources */ = {isa = PBXBuildFile; fileRef = 926154F3D258F45FCCCB2C65 /* 26-northern-lights.html */; };
 		422D35AF18C8B98433C114A0 /* 10-aurora.html in Resources */ = {isa = PBXBuildFile; fileRef = 123CBB9756AD67AECCC23646 /* 10-aurora.html */; };
 		43E50AE3AADD3A4660E3CFC9 /* 13-scream.html in Resources */ = {isa = PBXBuildFile; fileRef = 6ED454BBCB5787C219CAF4EA /* 13-scream.html */; };
+		44363CCFA2317B892FFC38DD /* 32-fireflies.html in Resources */ = {isa = PBXBuildFile; fileRef = 336D3C338EDCA8452A57EC4E /* 32-fireflies.html */; };
 		4735C16AA980A61F2367D1C6 /* 15-birth-of-venus.html in Resources */ = {isa = PBXBuildFile; fileRef = 352BE95750554FE75A5F9E05 /* 15-birth-of-venus.html */; };
+		4A876D22E97740EE7FDCDA54 /* 39-rain.html in Resources */ = {isa = PBXBuildFile; fileRef = FFA2DA027429A8388707470F /* 39-rain.html */; };
 		5D165396578AC249B266F274 /* 01-cosmic.html in Resources */ = {isa = PBXBuildFile; fileRef = CAC12697CE81A04FC90201D8 /* 01-cosmic.html */; };
+		685F00FBC75DDAB9BB0EA11E /* 40-psychedelic.html in Resources */ = {isa = PBXBuildFile; fileRef = EE4DE880BCEACA27B6A21386 /* 40-psychedelic.html */; };
+		6B52EDFCBD5458FD9718FF0A /* 46-falling-leaves.html in Resources */ = {isa = PBXBuildFile; fileRef = 7128D6E6675660B390F15DD9 /* 46-falling-leaves.html */; };
 		6D2F0000815D2C5FF04264F2 /* 09-lavender.html in Resources */ = {isa = PBXBuildFile; fileRef = 2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */; };
+		6E5CC5514877E1779A2C646C /* 23-fireplace.html in Resources */ = {isa = PBXBuildFile; fileRef = FD3EE81FB34859913DF703A1 /* 23-fireplace.html */; };
+		6F3BCCE18D550ED590FBA61C /* 27-matrix.html in Resources */ = {isa = PBXBuildFile; fileRef = 871115CE6AEE546012217921 /* 27-matrix.html */; };
+		71462C39AAC54E91BB407482 /* 44-bubble-bath.html in Resources */ = {isa = PBXBuildFile; fileRef = B49AEB270E0487D74E3B84BB /* 44-bubble-bath.html */; };
+		72BFB10B5B3CE92B44222B92 /* 34-campfire.html in Resources */ = {isa = PBXBuildFile; fileRef = 0086CE691F8E9403D5F7C301 /* 34-campfire.html */; };
 		7F79343EF7A74A727890D615 /* 17-persistence-memory.html in Resources */ = {isa = PBXBuildFile; fileRef = E22FF2023BF1966ABDC015CC /* 17-persistence-memory.html */; };
 		7FAF278EE8E169DF94E289A7 /* 04-forest.html in Resources */ = {isa = PBXBuildFile; fileRef = 51832FFD459F0A66AE414D99 /* 04-forest.html */; };
 		80238BEFF8D41181A9DF04D4 /* 20-water-lilies.html in Resources */ = {isa = PBXBuildFile; fileRef = E2E97C98C6E9F80C4E197EB0 /* 20-water-lilies.html */; };
 		87B91CC2F24D2F5D4F62F32D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB71F987CEA0667681EF226 /* main.swift */; };
 		8AE1D97CEE7B3F28076C07C5 /* 03-sunset.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A817474AB99B8F90183C402 /* 03-sunset.html */; };
+		91B21B4EC748059088EA9E5A /* 50-valentine.html in Resources */ = {isa = PBXBuildFile; fileRef = A4867FB26C11208337EF85D6 /* 50-valentine.html */; };
+		98B9824E3F317530D34C50A1 /* 22-rainy-city.html in Resources */ = {isa = PBXBuildFile; fileRef = 81FF956CF96E670B12B619CA /* 22-rainy-city.html */; };
+		9D6EA94759684141BFB48E2D /* 41-shooting-stars.html in Resources */ = {isa = PBXBuildFile; fileRef = EDF5A40F935150CEBC5119EE /* 41-shooting-stars.html */; };
 		A0B3B60B111BE806BB56B801 /* 08-golden.html in Resources */ = {isa = PBXBuildFile; fileRef = 2C37F0EB7ED4037389079F43 /* 08-golden.html */; };
 		A3241251AB0A7347D5FBB70B /* 06-arctic.html in Resources */ = {isa = PBXBuildFile; fileRef = 20B939BA54C7513FC404BF84 /* 06-arctic.html */; };
+		A44A594F3256520C46E9B3FD /* 43-snowy-night.html in Resources */ = {isa = PBXBuildFile; fileRef = B8FC76F18173B0C7B8B15F9C /* 43-snowy-night.html */; };
+		A9F11F7FC0F89000D2E0E629 /* 36-retro-hacker.html in Resources */ = {isa = PBXBuildFile; fileRef = E195A520CAC50D067BF3E8ED /* 36-retro-hacker.html */; };
 		AD5DF54CDBFC70558E984CDD /* 12-starry-night.html in Resources */ = {isa = PBXBuildFile; fileRef = 1416B69573D798C352205DCF /* 12-starry-night.html */; };
+		B08A8AB7B045135BE5193928 /* 25-thunderstorm.html in Resources */ = {isa = PBXBuildFile; fileRef = B44645AD830DD9636460718F /* 25-thunderstorm.html */; };
 		B23ADEFE02B6AF22B27C3DA2 /* 07-rose.html in Resources */ = {isa = PBXBuildFile; fileRef = F32BDB26CF86A32D6FC52F31 /* 07-rose.html */; };
 		BA6AA0F3D127A2FEAB9BB357 /* 18-creation-adam.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D5548CFE1AAD44B2ADD8B75 /* 18-creation-adam.html */; };
+		C2C4A593E441BED101040874 /* 28-sakura.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B6C3A301493B0D09A25F7F7 /* 28-sakura.html */; };
+		CFDD3AA97FA6667B4A5318FB /* 45-spinner.html in Resources */ = {isa = PBXBuildFile; fileRef = 43DFB9FE0759A4689C215991 /* 45-spinner.html */; };
+		D47AF9315CA260DC68E3D361 /* 33-lighthouse.html in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB727594FB50F4FD49BE62 /* 33-lighthouse.html */; };
 		DD8F472665AE156228E06C74 /* 16-last-supper.html in Resources */ = {isa = PBXBuildFile; fileRef = C966918AD48F5FCB8F4CA41E /* 16-last-supper.html */; };
+		E00A81BDF9B20B7647B7CBB3 /* 35-bamboo.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BB0F58D6E70A05CE31EC826 /* 35-bamboo.html */; };
+		E0D9772DC33F8BD2E09F6673 /* 24-underwater.html in Resources */ = {isa = PBXBuildFile; fileRef = F1713F48D71D30BBCA72032C /* 24-underwater.html */; };
+		E2D29C350750F0FF1D00A361 /* 30-neon-party.html in Resources */ = {isa = PBXBuildFile; fileRef = B57814A40BFF2E3514E03788 /* 30-neon-party.html */; };
+		EC6F6BDF0A19327A14CC5FE6 /* 31-paris-night.html in Resources */ = {isa = PBXBuildFile; fileRef = E0134AFC24A141C14A5A8D29 /* 31-paris-night.html */; };
+		EEAB9726213795D158063F7D /* 49-aquarium.html in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3DED2E784CB72CA1BAB10 /* 49-aquarium.html */; };
+		F3F60A4743A685302AE673B6 /* 29-blackhole.html in Resources */ = {isa = PBXBuildFile; fileRef = D379C816CF93C5AA7A270A50 /* 29-blackhole.html */; };
 		FE658939D37E8D7CFD8935C0 /* 05-neon.html in Resources */ = {isa = PBXBuildFile; fileRef = 96C55B079E77B85DC152A963 /* 05-neon.html */; };
+		FFFDAF6668C9BCDD52CE15A9 /* 48-atomic.html in Resources */ = {isa = PBXBuildFile; fileRef = F468C17915DFDFD0862D97E4 /* 48-atomic.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0086CE691F8E9403D5F7C301 /* 34-campfire.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "34-campfire.html"; sourceTree = "<group>"; };
+		064B26BA0B987527F7C77AAD /* 47-sunset-birds.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "47-sunset-birds.html"; sourceTree = "<group>"; };
 		0A817474AB99B8F90183C402 /* 03-sunset.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "03-sunset.html"; sourceTree = "<group>"; };
 		0F47E2B9828F175A0E939B65 /* 19-great-wave.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "19-great-wave.html"; sourceTree = "<group>"; };
 		123CBB9756AD67AECCC23646 /* 10-aurora.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "10-aurora.html"; sourceTree = "<group>"; };
 		1416B69573D798C352205DCF /* 12-starry-night.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "12-starry-night.html"; sourceTree = "<group>"; };
+		1BB0F58D6E70A05CE31EC826 /* 35-bamboo.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "35-bamboo.html"; sourceTree = "<group>"; };
+		1DA5F72B257B57E9FDE363C8 /* 38-purple-mountains.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "38-purple-mountains.html"; sourceTree = "<group>"; };
 		20B939BA54C7513FC404BF84 /* 06-arctic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "06-arctic.html"; sourceTree = "<group>"; };
 		2C37F0EB7ED4037389079F43 /* 08-golden.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "08-golden.html"; sourceTree = "<group>"; };
 		2D2BA13430B9EF3BC1B7645C /* 09-lavender.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "09-lavender.html"; sourceTree = "<group>"; };
+		336D3C338EDCA8452A57EC4E /* 32-fireflies.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "32-fireflies.html"; sourceTree = "<group>"; };
 		352BE95750554FE75A5F9E05 /* 15-birth-of-venus.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "15-birth-of-venus.html"; sourceTree = "<group>"; };
+		376AAB99E9D5DCF94DFB6E91 /* 42-falling-petals.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "42-falling-petals.html"; sourceTree = "<group>"; };
+		43DFB9FE0759A4689C215991 /* 45-spinner.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "45-spinner.html"; sourceTree = "<group>"; };
 		4489E7444C7BDD8233BD56BE /* 02-ocean.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "02-ocean.html"; sourceTree = "<group>"; };
+		48938E5E62595482E3CE6C1E /* 37-stormtrooper.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "37-stormtrooper.html"; sourceTree = "<group>"; };
+		4B6C3A301493B0D09A25F7F7 /* 28-sakura.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "28-sakura.html"; sourceTree = "<group>"; };
 		4D5548CFE1AAD44B2ADD8B75 /* 18-creation-adam.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "18-creation-adam.html"; sourceTree = "<group>"; };
 		51832FFD459F0A66AE414D99 /* 04-forest.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "04-forest.html"; sourceTree = "<group>"; };
 		5ABAB7C208F1296A3B353DD2 /* 11-mona-lisa.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "11-mona-lisa.html"; sourceTree = "<group>"; };
 		6ED454BBCB5787C219CAF4EA /* 13-scream.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "13-scream.html"; sourceTree = "<group>"; };
+		7128D6E6675660B390F15DD9 /* 46-falling-leaves.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "46-falling-leaves.html"; sourceTree = "<group>"; };
+		81FF956CF96E670B12B619CA /* 22-rainy-city.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "22-rainy-city.html"; sourceTree = "<group>"; };
+		871115CE6AEE546012217921 /* 27-matrix.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "27-matrix.html"; sourceTree = "<group>"; };
+		8AC3DED2E784CB72CA1BAB10 /* 49-aquarium.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "49-aquarium.html"; sourceTree = "<group>"; };
+		8AFB727594FB50F4FD49BE62 /* 33-lighthouse.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "33-lighthouse.html"; sourceTree = "<group>"; };
+		926154F3D258F45FCCCB2C65 /* 26-northern-lights.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "26-northern-lights.html"; sourceTree = "<group>"; };
 		95F7751C9097BD702553194F /* HTMLWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTMLWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C55B079E77B85DC152A963 /* 05-neon.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "05-neon.html"; sourceTree = "<group>"; };
+		A4867FB26C11208337EF85D6 /* 50-valentine.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "50-valentine.html"; sourceTree = "<group>"; };
 		AD4082723F18600DB89332C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ADB71F987CEA0667681EF226 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B44645AD830DD9636460718F /* 25-thunderstorm.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "25-thunderstorm.html"; sourceTree = "<group>"; };
+		B49AEB270E0487D74E3B84BB /* 44-bubble-bath.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "44-bubble-bath.html"; sourceTree = "<group>"; };
+		B57814A40BFF2E3514E03788 /* 30-neon-party.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "30-neon-party.html"; sourceTree = "<group>"; };
+		B8FC76F18173B0C7B8B15F9C /* 43-snowy-night.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "43-snowy-night.html"; sourceTree = "<group>"; };
+		BC53EA200408220CEDD49A39 /* 21-star-wars.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "21-star-wars.html"; sourceTree = "<group>"; };
 		C966918AD48F5FCB8F4CA41E /* 16-last-supper.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "16-last-supper.html"; sourceTree = "<group>"; };
 		CAC12697CE81A04FC90201D8 /* 01-cosmic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "01-cosmic.html"; sourceTree = "<group>"; };
+		D379C816CF93C5AA7A270A50 /* 29-blackhole.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "29-blackhole.html"; sourceTree = "<group>"; };
 		D8FC8B28D47B9C716F49F9C9 /* 14-pearl-earring.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "14-pearl-earring.html"; sourceTree = "<group>"; };
+		E0134AFC24A141C14A5A8D29 /* 31-paris-night.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "31-paris-night.html"; sourceTree = "<group>"; };
+		E195A520CAC50D067BF3E8ED /* 36-retro-hacker.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "36-retro-hacker.html"; sourceTree = "<group>"; };
 		E22FF2023BF1966ABDC015CC /* 17-persistence-memory.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "17-persistence-memory.html"; sourceTree = "<group>"; };
 		E2E97C98C6E9F80C4E197EB0 /* 20-water-lilies.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "20-water-lilies.html"; sourceTree = "<group>"; };
+		EDF5A40F935150CEBC5119EE /* 41-shooting-stars.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "41-shooting-stars.html"; sourceTree = "<group>"; };
+		EE4DE880BCEACA27B6A21386 /* 40-psychedelic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "40-psychedelic.html"; sourceTree = "<group>"; };
+		F1713F48D71D30BBCA72032C /* 24-underwater.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "24-underwater.html"; sourceTree = "<group>"; };
 		F32BDB26CF86A32D6FC52F31 /* 07-rose.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "07-rose.html"; sourceTree = "<group>"; };
+		F468C17915DFDFD0862D97E4 /* 48-atomic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "48-atomic.html"; sourceTree = "<group>"; };
+		FD3EE81FB34859913DF703A1 /* 23-fireplace.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "23-fireplace.html"; sourceTree = "<group>"; };
+		FFA2DA027429A8388707470F /* 39-rain.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "39-rain.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -114,6 +174,36 @@
 				4D5548CFE1AAD44B2ADD8B75 /* 18-creation-adam.html */,
 				0F47E2B9828F175A0E939B65 /* 19-great-wave.html */,
 				E2E97C98C6E9F80C4E197EB0 /* 20-water-lilies.html */,
+				BC53EA200408220CEDD49A39 /* 21-star-wars.html */,
+				81FF956CF96E670B12B619CA /* 22-rainy-city.html */,
+				FD3EE81FB34859913DF703A1 /* 23-fireplace.html */,
+				F1713F48D71D30BBCA72032C /* 24-underwater.html */,
+				B44645AD830DD9636460718F /* 25-thunderstorm.html */,
+				926154F3D258F45FCCCB2C65 /* 26-northern-lights.html */,
+				871115CE6AEE546012217921 /* 27-matrix.html */,
+				4B6C3A301493B0D09A25F7F7 /* 28-sakura.html */,
+				D379C816CF93C5AA7A270A50 /* 29-blackhole.html */,
+				B57814A40BFF2E3514E03788 /* 30-neon-party.html */,
+				E0134AFC24A141C14A5A8D29 /* 31-paris-night.html */,
+				336D3C338EDCA8452A57EC4E /* 32-fireflies.html */,
+				8AFB727594FB50F4FD49BE62 /* 33-lighthouse.html */,
+				0086CE691F8E9403D5F7C301 /* 34-campfire.html */,
+				1BB0F58D6E70A05CE31EC826 /* 35-bamboo.html */,
+				E195A520CAC50D067BF3E8ED /* 36-retro-hacker.html */,
+				48938E5E62595482E3CE6C1E /* 37-stormtrooper.html */,
+				1DA5F72B257B57E9FDE363C8 /* 38-purple-mountains.html */,
+				FFA2DA027429A8388707470F /* 39-rain.html */,
+				EE4DE880BCEACA27B6A21386 /* 40-psychedelic.html */,
+				EDF5A40F935150CEBC5119EE /* 41-shooting-stars.html */,
+				376AAB99E9D5DCF94DFB6E91 /* 42-falling-petals.html */,
+				B8FC76F18173B0C7B8B15F9C /* 43-snowy-night.html */,
+				B49AEB270E0487D74E3B84BB /* 44-bubble-bath.html */,
+				43DFB9FE0759A4689C215991 /* 45-spinner.html */,
+				7128D6E6675660B390F15DD9 /* 46-falling-leaves.html */,
+				064B26BA0B987527F7C77AAD /* 47-sunset-birds.html */,
+				F468C17915DFDFD0862D97E4 /* 48-atomic.html */,
+				8AC3DED2E784CB72CA1BAB10 /* 49-aquarium.html */,
+				A4867FB26C11208337EF85D6 /* 50-valentine.html */,
 			);
 			name = patterns;
 			path = Wallpapers/patterns;
@@ -198,6 +288,36 @@
 				BA6AA0F3D127A2FEAB9BB357 /* 18-creation-adam.html in Resources */,
 				1541F3069E661AE485661DA5 /* 19-great-wave.html in Resources */,
 				80238BEFF8D41181A9DF04D4 /* 20-water-lilies.html in Resources */,
+				031C0B798DFC90B504E27263 /* 21-star-wars.html in Resources */,
+				98B9824E3F317530D34C50A1 /* 22-rainy-city.html in Resources */,
+				6E5CC5514877E1779A2C646C /* 23-fireplace.html in Resources */,
+				E0D9772DC33F8BD2E09F6673 /* 24-underwater.html in Resources */,
+				B08A8AB7B045135BE5193928 /* 25-thunderstorm.html in Resources */,
+				37E0CFE99731BA3095BDF807 /* 26-northern-lights.html in Resources */,
+				6F3BCCE18D550ED590FBA61C /* 27-matrix.html in Resources */,
+				C2C4A593E441BED101040874 /* 28-sakura.html in Resources */,
+				F3F60A4743A685302AE673B6 /* 29-blackhole.html in Resources */,
+				E2D29C350750F0FF1D00A361 /* 30-neon-party.html in Resources */,
+				EC6F6BDF0A19327A14CC5FE6 /* 31-paris-night.html in Resources */,
+				44363CCFA2317B892FFC38DD /* 32-fireflies.html in Resources */,
+				D47AF9315CA260DC68E3D361 /* 33-lighthouse.html in Resources */,
+				72BFB10B5B3CE92B44222B92 /* 34-campfire.html in Resources */,
+				E00A81BDF9B20B7647B7CBB3 /* 35-bamboo.html in Resources */,
+				A9F11F7FC0F89000D2E0E629 /* 36-retro-hacker.html in Resources */,
+				1B305874184690860D95F9CB /* 37-stormtrooper.html in Resources */,
+				0C4B32F7DA29A28453A3A8EA /* 38-purple-mountains.html in Resources */,
+				4A876D22E97740EE7FDCDA54 /* 39-rain.html in Resources */,
+				685F00FBC75DDAB9BB0EA11E /* 40-psychedelic.html in Resources */,
+				9D6EA94759684141BFB48E2D /* 41-shooting-stars.html in Resources */,
+				0A46DDCF81F33EC9FC4B15B0 /* 42-falling-petals.html in Resources */,
+				A44A594F3256520C46E9B3FD /* 43-snowy-night.html in Resources */,
+				71462C39AAC54E91BB407482 /* 44-bubble-bath.html in Resources */,
+				CFDD3AA97FA6667B4A5318FB /* 45-spinner.html in Resources */,
+				6B52EDFCBD5458FD9718FF0A /* 46-falling-leaves.html in Resources */,
+				057325AE5E5B2D09789F48E5 /* 47-sunset-birds.html in Resources */,
+				FFFDAF6668C9BCDD52CE15A9 /* 48-atomic.html in Resources */,
+				EEAB9726213795D158063F7D /* 49-aquarium.html in Resources */,
+				91B21B4EC748059088EA9E5A /* 50-valentine.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

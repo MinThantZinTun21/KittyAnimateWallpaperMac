@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a2e; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const embers=[];for(let i=0;i<60;i++)embers.push({x:Math.random()*W,y:Math.random()*H*0.7+100,vx:(Math.random()-0.5)*1,vy:-Math.random()*2-1,s:Math.random()*2+1});
+    const logs=[];for(let i=0;i<5;i++)logs.push({x:Math.random()*W*0.6,y:H-50+Math.random()*20,len:150+Math.random()*100,rot:Math.random()*0.2-0.1});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#2a1a1a');g.addColorStop(0.5,'#1a0a0a');g.addColorStop(1,'#0a0505');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let l of logs){x.save();x.translate(l.x,l.y);x.rotate(l.rot);x.fillStyle='#2a1a0a';x.beginPath();x.ellipse(0,0,l.len,20,0,0,Math.PI*2);x.fill();x.strokeStyle='#1a0a00';x.lineWidth=3;x.beginPath();x.moveTo(-l.len*0.8,0);x.lineTo(l.len*0.8,0);x.stroke();x.restore();}
+        for(let e of embers){e.x+=e.vx+Math.sin(t*0.002+e.y*0.01)*0.3;e.y+=e.vy;if(e.y<0){e.y=H;e.x=Math.random()*W;}x.globalAlpha=0.5+Math.random()*0.5;x.fillStyle='#ff6020';x.beginPath();x.arc(e.x,e.y,e.s,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        const glow=0.3+Math.sin(t*0.003)*0.2;x.fillStyle=`rgba(255,100,30,${glow})`;x.beginPath();x.arc(W*0.3,H-30,100,0,Math.PI*2);x.fill();
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#ff6020');og.addColorStop(1,'#1a0a0a');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

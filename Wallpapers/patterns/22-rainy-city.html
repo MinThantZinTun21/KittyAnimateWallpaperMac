@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a2e; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const rain=[];for(let i=0;i<200;i++)rain.push({x:Math.random()*W,y:Math.random()*H,len:10+Math.random()*20,speed:8+Math.random()*8});
+    const lights=[];for(let i=0;i<30;i++)lights.push({x:Math.random()*W,y:H*0.3+Math.random()*H*0.5,on:Math.random()>0.5,sp:Math.random()*0.01+0.005});
+    const reflections=[];for(let i=0;i<20;i++)reflections.push({x:Math.random()*W,y:H*0.5+Math.random()*H*0.3,w:5+Math.random()*10,h:20+Math.random()*40,a:Math.random()*0.3+0.1});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#0a0a15');g.addColorStop(0.5,'#1a1a2e');g.addColorStop(1,'#0a1520');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let ref of reflections){ref.y+=0.3;if(ref.y>H)ref.y=H*0.5;x.globalAlpha=ref.a;x.fillStyle='#f4d03f';x.beginPath();x.ellipse(ref.x,ref.y,ref.w,ref.h,0,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        for(let l of lights){l.sp+=0.01;if(l.sp>1)l.sp=0;l.on=l.sp>0.3;x.fillStyle=l.on?'#f4d03f':'#4a4a3a';x.globalAlpha=l.on?0.9:0.3;x.beginPath();x.arc(l.x,l.y,8,0,Math.PI*2);x.fill();x.globalAlpha=1;}
+        for(let r of rain){r.y+=r.speed;if(r.y>H){r.y=-r.len;r.x=Math.random()*W;}x.strokeStyle='rgba(150,180,200,0.4)';x.lineWidth=1;x.beginPath();x.moveTo(r.x,r.y);x.lineTo(r.x-2,r.y+r.len);x.stroke();}
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#f4d03f');og.addColorStop(1,'#1a1a2e');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

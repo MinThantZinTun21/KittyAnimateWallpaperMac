@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a1a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const rain=[];for(let i=0;i<300;i++)rain.push({x:Math.random()*W,y:Math.random()*H,len:15+Math.random()*25,speed:12+Math.random()*10});
+    const lightnings=[];for(let i=0;i<5;i++)lightnings.push({x:Math.random()*W,y:0,active:false,timer:Math.random()*100});
+    function draw(t){
+        x.fillStyle='#0a0a0f';x.fillRect(0,0,W,H);
+        const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1a1a25');g.addColorStop(1,'#0a0a0f');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let r of rain){r.y+=r.speed;if(r.y>H){r.y=-r.len;r.x=Math.random()*W;}x.strokeStyle='rgba(120,140,160,0.3)';x.lineWidth=1;x.beginPath();x.moveTo(r.x,r.y);x.lineTo(r.x-1,r.y+r.len);x.stroke();}
+        for(let l of lightnings){l.timer++;if(l.timer>150+Math.random()*100){l.active=true;l.x=Math.random()*W;l.timer=0;}if(l.active){x.strokeStyle='rgba(200,220,255,0.8)';x.lineWidth=3;x.beginPath();x.moveTo(l.x,0);let y=0;while(y<H){y+=20+Math.random()*30;x.lineTo(l.x+(Math.random()-0.5)*40,y);}x.stroke();x.fillStyle='rgba(200,220,255,0.3)';x.fillRect(0,0,W,H);if(Math.random()>0.7)l.active=false;}}
+        const flash=lightnings.some(l=>l.active);x.globalAlpha=flash?0.3:0.05;x.fillStyle='#fff';x.fillRect(0,0,W,H);x.globalAlpha=1;
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#6080a0');og.addColorStop(1,'#0a0a0f');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a0a0a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const particles=[];for(let i=0;i<100;i++)particles.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,size:1+Math.random()*2,color:`hsl(${Math.random()*60},80%,60%)`});
+    function draw(t){
+        x.fillStyle='#000';x.fillRect(0,0,W,H);
+        const cx=W/2,cy=H/2;
+        for(let i=0;i<12;i++){const r=30+i*25,a=t*0.001+i*0.3;x.strokeStyle=`hsla(${i*30},80%,50%,0.2)`;x.lineWidth=2;x.beginPath();x.arc(cx,cy,r,a,Math.PI*2+a-0.5);x.stroke();}
+        for(let p of particles){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.fillStyle=p.color;x.globalAlpha=0.6;x.beginPath();x.arc(p.x,p.y,p.size,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        x.globalAlpha=0.1;const og=x.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H));og.addColorStop(0,'#ff0000');og.addColorStop(0.5,'#00ff00');og.addColorStop(1,'#0000ff');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

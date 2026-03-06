@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a0a0a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const scanlines=[];for(let i=0;i<10;i++)scanlines.push({y:Math.random()*H,speed:0.5+Math.random()*1});
+    const glitches=[];for(let i=0;i<5;i++)glitches.push({x:Math.random()*W,y:Math.random()*H,h:20+Math.random()*50,w:100+Math.random()*200,active:false,timer:Math.random()*200});
+    function draw(t){
+        x.fillStyle='#000';x.fillRect(0,0,W,H);
+        const gridSize=30;
+        for(let i=0;i<=W/gridSize;i++){x.strokeStyle='rgba(0,255,0,0.1)';x.lineWidth=1;x.beginPath();x.moveTo(i*gridSize,0);x.lineTo(i*gridSize,H);x.stroke();}
+        for(let i=0;i<=H/gridSize;i++){x.strokeStyle='rgba(0,255,0,0.1)';x.beginPath();x.moveTo(0,i*gridSize);x.lineTo(W,i*gridSize);x.stroke();}
+        const cx=W/2,cy=H/2;
+        x.strokeStyle='rgba(0,255,0,0.5)';x.lineWidth=2;x.beginPath();x.moveTo(cx-50,cy);x.lineTo(cx+50,cy);x.moveTo(cx,cy-50);x.lineTo(cx,cy+50);x.stroke();
+        x.strokeStyle='rgba(0,255,0,0.3)';x.beginPath();x.arc(cx,cy,80,0,Math.PI*2);x.stroke();
+        for(let gl of glitches){gl.timer++;if(gl.timer>200){gl.active=true;gl.timer=0;gl.y=Math.random()*H;gl.x=Math.random()*W;gl.w=100+Math.random()*200;gl.h=20+Math.random()*50;}if(gl.active){x.fillStyle=`rgba(0,255,0,${Math.random()*0.5})`;x.fillRect(gl.x,gl.y,gl.w,gl.h);if(Math.random()>0.7)gl.active=false;}}
+        for(let sl of scanlines){sl.y+=sl.speed;if(sl.y>H)sl.y=0;x.strokeStyle='rgba(0,255,0,0.2)';x.lineWidth=2;x.beginPath();x.moveTo(0,sl.y);x.lineTo(W,sl.y);x.stroke();}
+        x.globalAlpha=0.1;const og=x.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H));og.addColorStop(0,'#00ff00');og.addColorStop(1,'#000');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a1520; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const drops=[];for(let i=0;i<100;i++)drops.push({x:Math.random()*W,y:Math.random()*H,speed:5+Math.random()*5,size:2+Math.random()*2});
+    const ripples=[];for(let i=0;i<10;i++)ripples.push({x:Math.random()*W,y:Math.random()*H,r:0,maxR:50+Math.random()*30,active:false,timer:Math.random()*200});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1a2535');g.addColorStop(0.5,'#0a1520');g.addColorStop(1,'#050a10');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let r of ripples){r.timer++;if(r.timer>200){r.active=true;r.timer=0;r.r=0;}if(r.active){r.r+=1;if(r.r>r.maxR)r.active=false;x.strokeStyle='rgba(100,200,255,0.3)';x.lineWidth=2;x.beginPath();x.arc(r.x,r.y,r.r,0,Math.PI*2);x.stroke();}}
+        for(let d of drops){d.y+=d.speed;if(d.y>H){d.y=-10;d.x=Math.random()*W;}x.strokeStyle='rgba(150,200,255,0.5)';x.lineWidth=d.size;x.beginPath();x.moveTo(d.x,d.y);x.lineTo(d.x,d.y+10);x.stroke();}
+        x.globalAlpha=0.1;const lg=x.createLinearGradient(0,0,W,H);lg.addColorStop(0,'#60a0f0');lg.addColorStop(1,'#050a10');x.fillStyle=lg;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

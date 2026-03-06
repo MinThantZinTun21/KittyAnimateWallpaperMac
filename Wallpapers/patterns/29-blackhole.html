@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a0a0a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const particles=[];for(let i=0;i<100;i++)particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*3+1,color:`hsl(${Math.random()*60+200},80%,${50+Math.random()*30}%)`,sp:(Math.random()-0.5)*2});
+    const ring={r:150,rot:0};
+    function draw(t){
+        x.fillStyle='#000';x.fillRect(0,0,W,H);
+        const cx=W/2,cy=H/2;
+        ring.rot+=0.005;
+        for(let i=0;i<5;i++){const r=ring.r*(i*0.3+1),a=ring.rot+i*0.5;x.strokeStyle=`hsla(${240+i*20},80%,${50+i*10}%,0.3)`;x.lineWidth=2;x.beginPath();x.ellipse(cx,cy,r,r*0.3,a,0,Math.PI*2);x.stroke();}
+        for(let p of particles){p.x+=p.sp;p.y+=Math.sin(t*0.002+p.x*0.01)*0.5;if(p.x<0)p.x=W;if(p.x>W)p.x=0;x.fillStyle=p.color;x.globalAlpha=0.6;x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        x.fillStyle='#fff';x.beginPath();x.arc(cx,cy,20,0,Math.PI*2);x.fill();
+        const beam=Math.sin(t*0.003)*0.3+0.7;x.strokeStyle=`rgba(255,255,255,${beam*0.5})`;x.lineWidth=1;for(let i=0;i<12;i++){const a=i*Math.PI/6;x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*300,cy+Math.sin(a)*300);x.stroke();}
+        x.globalAlpha=0.1;const og=x.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H));og.addColorStop(0,'#00aaff');og.addColorStop(1,'#000');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

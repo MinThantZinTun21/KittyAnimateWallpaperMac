@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #0a1520; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const bubbles=[];for(let i=0;i<40;i++)bubbles.push({x:Math.random()*W,y:H+Math.random()*100,r:5+Math.random()*20,sp:0.5+Math.random()*1.5,wobble:Math.random()*Math.PI*2});
+    const coral=[];for(let i=0;i<15;i++){const x=Math.random()*W;coral.push({x:x,y:H-20,baseW:30+Math.random()*40,h:80+Math.random()*120,color:`hsl(${Math.random()*60+320},70%,${40+Math.random()*20}%)`,phase:Math.random()*Math.PI*2});}
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1a3040');g.addColorStop(0.5,'#0a2030');g.addColorStop(1,'#051015');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let b of bubbles){b.y-=b.sp;b.wobble+=0.05;b.x+=Math.sin(b.wobble)*0.5;if(b.y<-b.r*2){b.y=H+Math.random()*50;b.x=Math.random()*W;}const bg=x.createRadialGradient(b.x-b.r*0.3,b.y-b.r*0.3,0,b.x,b.y,b.r);bg.addColorStop(0,'rgba(150,220,255,0.4)');bg.addColorStop(0.5,'rgba(100,180,220,0.2)');bg.addColorStop(1,'rgba(50,100,150,0.1)');x.fillStyle=bg;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.fill();x.strokeStyle='rgba(255,255,255,0.3)';x.lineWidth=1;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.stroke();}
+        for(let cr of coral){const sway=Math.sin(t*0.002+cr.phase)*5;x.fillStyle=cr.color;x.beginPath();x.moveTo(cr.x-cr.baseW/2,cr.y);x.quadraticCurveTo(cr.x+sway-cr.baseW*0.3,cr.y-cr.h*0.5,cr.x+sway,cr.y-cr.h);x.quadraticCurveTo(cr.x+sway+cr.baseW*0.3,cr.y-cr.h*0.5,cr.x+cr.baseW/2,cr.y);x.fill();}
+        x.fillStyle='#051525';x.beginPath();x.moveTo(0,H);x.lineTo(0,H-30);x.lineTo(W,H-30);x.lineTo(W,H);x.fill();
+        x.globalAlpha=0.1;const lg=x.createLinearGradient(0,0,W,H);lg.addColorStop(0,'#00aaff');lg.addColorStop(1,'#051015');x.fillStyle=lg;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

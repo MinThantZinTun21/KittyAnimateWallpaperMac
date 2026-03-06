@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a2e; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const leaves=[];for(let i=0;i<25;i++)leaves.push({x:Math.random()*W,y:Math.random()*H*0.7,vx:(Math.random()-0.5)*1.5,vy:Math.random()*0.8+0.3,rot:Math.random()*Math.PI*2,sp:Math.random()*0.04+0.02,size:8+Math.random()*10});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#2a3a2a');g.addColorStop(0.5,'#3a4a3a');g.addColorStop(1,'#2a3a2a');x.fillStyle=g;x.fillRect(0,0,W,H);
+        x.fillStyle='#1a2a1a';x.fillRect(0,H*0.7,W,H*0.3);
+        for(let l of leaves){l.x+=l.vx+Math.sin(t*0.001+l.y*0.01)*0.5;l.y+=l.vy;l.rot+=l.sp;if(l.y>H){l.y=0;l.x=Math.random()*W;}x.save();x.translate(l.x,l.y);x.rotate(l.rot);x.fillStyle=`hsla(${80+Math.random()*40},${60+Math.random()*20}%,${40+Math.random()*20}%,0.8)`;x.beginPath();x.ellipse(0,0,l.size,l.size*0.4,0,0,Math.PI*2);x.fill();x.restore();}
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#60a040');og.addColorStop(1,'#1a2a1a');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a2a1a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const stalks=[];for(let i=0;i<30;i++)stalks.push({x:Math.random()*W,y:H,len:150+Math.random()*200,phase:Math.random()*Math.PI*2,sp:Math.random()*0.02+0.01});
+    const leaves=[];for(let i=0;i<50;i++)leaves.push({x:Math.random()*W,y:Math.random()*H,size:10+Math.random()*15,phase:Math.random()*Math.PI*2});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1a2a1a');g.addColorStop(0.5,'#2a3a2a');g.addColorStop(1,'#1a2a1a');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let s of stalks){const sway=Math.sin(t*s.sp+s.phase)*15;x.strokeStyle='#2a4a2a';x.lineWidth=8;x.beginPath();x.moveTo(s.x,s.y);x.quadraticCurveTo(s.x+sway,s.y-s.len/2,s.x+sway*1.5,s.y-s.len);x.stroke();x.strokeStyle='#3a5a3a';x.lineWidth=4;x.beginPath();x.moveTo(s.x,s.y-s.len*0.3);x.quadraticCurveTo(s.x+sway*0.5,s.y-s.len*0.5,s.x+sway,s.y-s.len*0.7);x.stroke();}
+        for(let l of leaves){l.phase+=0.02;const sway=Math.sin(l.phase)*5;x.fillStyle='#3a5a3a';x.beginPath();x.ellipse(l.x+sway,l.y,l.size,l.size*0.3,0,0,Math.PI*2);x.fill();}
+        x.globalAlpha=0.1;const og=x.createLinearGradient(0,0,W,H);og.addColorStop(0,'#4a8a4a');og.addColorStop(1,'#1a2a1a');x.fillStyle=og;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

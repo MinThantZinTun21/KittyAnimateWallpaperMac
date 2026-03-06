@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a1a2e; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const bubbles=[];for(let i=0;i<30;i++)bubbles.push({x:Math.random()*W,y:H+Math.random()*50,r:15+Math.random()*25,sp:0.5+Math.random()*1});
+    const reflections=[];for(let i=0;i<20;i++)reflections.push({x:Math.random()*W,y:Math.random()*H*0.3,w:3+Math.random()*8,h:15+Math.random()*30,a:Math.random()*0.2+0.05});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#2a3a4a');g.addColorStop(0.5,'#1a2a3a');g.addColorStop(1,'#0a1520');x.fillStyle=g;x.fillRect(0,0,W,H);
+        for(let ref of reflections){ref.y+=0.2;if(ref.y>H*0.4)ref.y=0;x.globalAlpha=ref.a;x.fillStyle='#f4d03f';x.beginPath();x.ellipse(ref.x,ref.y,ref.w,ref.h,0,0,Math.PI*2);x.fill();}x.globalAlpha=1;
+        for(let b of bubbles){b.y-=b.sp;b.x+=Math.sin(t*0.002+b.y*0.01)*0.3;if(b.y<-b.r*2){b.y=H+Math.random()*50;b.x=Math.random()*W;}const bg=x.createRadialGradient(b.x-b.r*0.3,b.y-b.r*0.3,0,b.x,b.y,b.r);bg.addColorStop(0,'rgba(200,230,255,0.3)');bg.addColorStop(0.5,'rgba(100,180,220,0.2)');bg.addColorStop(1,'transparent');x.fillStyle=bg;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.fill();x.strokeStyle='rgba(255,255,255,0.2)';x.lineWidth=1;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.stroke();}
+        x.globalAlpha=0.1;const lg=x.createLinearGradient(0,0,W,H);lg.addColorStop(0,'#60a0f0');lg.addColorStop(1,'#0a1520');x.fillStyle=lg;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>

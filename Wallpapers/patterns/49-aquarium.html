@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>body { background: #1a2a2a; width: 100vw; height: 100vh; overflow: hidden; margin: 0; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+(function() {
+    const c=document.getElementById('canvas'),x=c.getContext('2d');let W=window.innerWidth,H=window.innerHeight,d=window.devicePixelRatio||1,lt=0;
+    function rs(){W=window.innerWidth;H=window.innerHeight;c.width=W*d;c.height=H*d;c.style.width=W+'px';c.style.height=H+'px';x.scale(d,d);}rs();
+    const drops=[];for(let i=0;i<40;i++)drops.push({x:Math.random()*W,y:Math.random()*H*0.6,r:3+Math.random()*5,sp:1+Math.random()*2});
+    function draw(t){
+        const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#2a3a3a');g.addColorStop(0.5,'#1a2a2a');g.addColorStop(1,'#0a1515');x.fillStyle=g;x.fillRect(0,0,W,H);
+        const cx=W/2,cy=H*0.6,scale=Math.min(W,H)/400;
+        x.save();x.translate(cx,cy);x.scale(scale,scale);
+        x.fillStyle='#3a4a4a';x.beginPath();x.ellipse(0,0,150,200,0,0,Math.PI*2);x.fill();
+        const wg=x.createLinearGradient(0,-180,0,180);wg.addColorStop(0,'#60a0a0');wg.addColorStop(0.3,'#408080');wg.addColorStop(0.7,'#306060');wg.addColorStop(1,'#204040');
+        x.fillStyle=wg;x.beginPath();x.ellipse(0,0,130,180,0,0,Math.PI*2);x.fill();
+        x.fillStyle='#204040';x.beginPath();x.ellipse(0,0,100,140,0,0,Math.PI*2);x.fill();
+        for(let d of drops){d.y+=d.sp;if(d.y>80){d.y=-80;d.x=(Math.random()-0.5)*200;}x.fillStyle='rgba(150,200,255,0.6)';x.beginPath();x.arc(d.x,d.y,d.r,0,Math.PI*2);x.fill();}
+        x.restore();
+        x.globalAlpha=0.1;const lg=x.createLinearGradient(0,0,W,H);lg.addColorStop(0,'#60a0a0');lg.addColorStop(1,'#0a1515');x.fillStyle=lg;x.fillRect(0,0,W,H);x.globalAlpha=1;
+    }
+    function anim(ts){const dt=Math.min(ts-lt,50);lt=ts;x.clearRect(0,0,W,H);draw(ts);requestAnimationFrame(anim);}
+    window.addEventListener('resize',rs);requestAnimationFrame(anim);
+})();
+</script>
+</body>
+</html>
